@@ -1,0 +1,29 @@
+.btnz {
+  background-color: #6b65f4;
+  border: 2px solid rgb(112, 84, 255) !important;
+  transition: 0.3s;
+}
+
+.btnz:hover {
+  background-color: #574ff7;
+}
+
+.TransBtn {
+  background-color: transparent;
+  border: 2px solid gray !important;
+}
+
+.TransBtn:hover {
+  background-color: black;
+  color: lightgray;
+}
+
+@media only screen and (max-width: 768px) {
+  .cusBtnWidth {
+    width: 11rem !important;
+    height: 3.5rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

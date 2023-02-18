@@ -1,0 +1,30 @@
+.parallax-window {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .fs-60 {
+    font-size: 50px;
+  }
+  
+  .font-s{
+    font-size: 14px;
+  }
+  .cus-H{
+    height: 50%;
+  }
+  .cusLog{
+    width: 5rem;
+    text-align: center;
+    border-radius: 10px;
+  }
+  .cusLog2{
+    padding: 7px;
+    border-radius: 10px;
+    transition: .3s;
+  }
+  .cusLog2:hover{
+    background-color: green;
+  }
