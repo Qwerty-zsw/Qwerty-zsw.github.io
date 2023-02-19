@@ -82,11 +82,11 @@ const App = () => {
         height="cus-H"
         bgImg="../public/asd.png"
       />
-      <div className="w-100 d-flex justify-content-evenly flex-wrap gap-4 mt-5">
+      <div className="w-100 d-flex justify-content-center flex-wrap gap-4 mt-5">
         {Data.map((item) => {
           return (
-            <Col xs={12} sm={5} lg={3}>
-            <a className="mt-2" key={`productList-${item.id}`}>
+            <Col className="mt-2 px-4" xs={12} sm={5} lg={3}>
+            <a key={`productList-${item.id}`}>
               <MainCard
                 productImg={item.image}
                 TitleName={item.title}
