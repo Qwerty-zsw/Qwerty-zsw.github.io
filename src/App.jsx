@@ -1,3 +1,5 @@
+import { Col } from "react-bootstrap";
+import Footer from "./Footer/Footer";
 import Main from "./Main/Main";
 import MainCard from "./MainCard/MainCard";
 
@@ -25,42 +27,42 @@ const App = () => {
       Desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
     },
     {
-      id: 1,
+      id: 4,
       image:
         "https://media.steampowered.com/apps/csgo/blog/images/fb_image.png",
       title: "CS:GO",
       Desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
     },
     {
-      id: 2,
+      id: 5,
       image:
         "https://media.steampowered.com/apps/csgo/blog/images/fb_image.png",
       title: "CS:GO",
       Desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
     },
     {
-      id: 3,
+      id: 6,
       image:
         "https://media.steampowered.com/apps/csgo/blog/images/fb_image.png",
       title: "CS:GO",
       Desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
     },
     {
-      id: 1,
+      id: 7,
       image:
         "https://media.steampowered.com/apps/csgo/blog/images/fb_image.png",
       title: "CS:GO",
       Desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
     },
     {
-      id: 2,
+      id: 8,
       image:
         "https://media.steampowered.com/apps/csgo/blog/images/fb_image.png",
       title: "CS:GO",
       Desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
     },
     {
-      id: 3,
+      id: 9,
       image:
         "https://media.steampowered.com/apps/csgo/blog/images/fb_image.png",
       title: "CS:GO",
@@ -80,19 +82,22 @@ const App = () => {
         height="cus-H"
         bgImg="../public/asd.png"
       />
-      <div className="w-100 d-flex justify-content-evenly flex-wrap overflow-hidden gap-2 mt-5">
+      <div className="w-100 d-flex justify-content-evenly flex-wrap gap-4 mt-5">
         {Data.map((item) => {
           return (
-            <a key={`productList-${item.id}`}>
+            <Col xs={12} sm={5} lg={3}>
+            <a className="mt-2" key={`productList-${item.id}`}>
               <MainCard
                 productImg={item.image}
                 TitleName={item.title}
                 Description={item.Desc}
               />
             </a>
+            </Col>
           );
         })}
       </div>
+      <Footer />
     </div>
   );
 };
