@@ -5,17 +5,18 @@
 }
 
 .btnz:hover {
-  background-color: #574ff7;
+  background-color: transparent;
+  border: 2px solid #00bef8 !important;
 }
 
 .TransBtn {
   background-color: transparent;
-  border: 2px solid gray !important;
+  border: 2px solid rgb(0, 0, 0) !important;
 }
 
 .TransBtn:hover {
-  background-color: black;
-  color: lightgray;
+  background-color: #6f00ff;
+  border: 2px solid #6b65f4 !important;
 }
 
 @media only screen and (max-width: 768px) {
