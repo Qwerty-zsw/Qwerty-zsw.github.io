@@ -1,3 +1,4 @@
+import "./App.css";
 import { Col } from "react-bootstrap";
 import Footer from "./Footer/Footer";
 import Main from "./Main/Main";
@@ -82,21 +83,23 @@ const App = () => {
         height="cus-H"
         bgImg="../public/asd.png"
       />
-      <div className="w-100 d-flex justify-content-center flex-wrap gap-4 mt-5">
-        {Data.map((item) => {
-          return (
-            <Col className="mt-2 px-4" xs={12} sm={5} lg={3}>
-            <a key={`productList-${item.id}`}>
-              <MainCard
-                productImg={item.image}
-                TitleName={item.title}
-                Description={item.Desc}
-              />
-            </a>
-            </Col>
-          );
-        })}
-      </div>
+      <div className="bgc-cus">
+        <div className="w-100 d-flex justify-content-center flex-wrap gap-4 py-5">
+            {Data.map((item) => {
+              return (
+                <Col className="px-4" xs={12} sm={5} lg={3}>
+                  <a key={`productList-${item.id}`}>
+                    <MainCard
+                      productImg={item.image}
+                      TitleName={item.title}
+                      Description={item.Desc}
+                    />
+                  </a>
+                </Col>
+              );
+            })}
+          </div>
+        </div>
       <Footer />
     </div>
   );

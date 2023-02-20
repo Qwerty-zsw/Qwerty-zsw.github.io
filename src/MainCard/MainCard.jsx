@@ -1,9 +1,8 @@
-import "./MainCard.css";
 import Card from "react-bootstrap/Card";
 
 const MainCard = (props) => {
   return (
-    <div>
+      <div>
       <Card>
         <Card.Img variant="top" src={props.productImg} />
         <Card.Body className="text-center">

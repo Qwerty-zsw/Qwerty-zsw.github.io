@@ -1,0 +1,6 @@
+.bgc-cus{
+    background-image: url(../public/main-bgc.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
