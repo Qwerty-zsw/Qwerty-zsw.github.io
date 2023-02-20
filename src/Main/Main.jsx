@@ -28,12 +28,12 @@ const Main = ({
         <div className="w-100 d-flex flex-column text-center">
           <section className={`w-100 ${paraFs}`}>{ParaText}</section>
           <div className="w-100 d-flex justify-content-center">
-            <small className={`${paraSecWidth} ${paraSmallFont} mt-3 mb-2`}>
+            <small className={`${paraSmallFont} mt-3 mb-2`}>
               {paraSmallText}
             </small>
           </div>
           <div
-            className={`w-100 d-flex justify-content-center mt-4 ${paraBtnVisibility}`}
+            className="w-100 d-flex justify-content-center mt-4"
           >
             <Btnz BtnText={BtnText} BtnSecClassName={BtnClassMain} />
             <Btnz BtnSecClassName={BtnSecClassName} BtnText={BtnTextSec} />

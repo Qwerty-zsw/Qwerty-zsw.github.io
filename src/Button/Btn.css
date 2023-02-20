@@ -1,22 +1,22 @@
 .btnz {
-  background-color: #6b65f4;
-  border: 2px solid rgb(112, 84, 255) !important;
+  background-color: #73C843;
+  border: 2px solid #73C843 !important;
   transition: 0.3s;
 }
 
 .btnz:hover {
   background-color: transparent;
-  border: 2px solid #00bef8 !important;
+  border: 2px solid #5eff01;
 }
 
 .TransBtn {
   background-color: transparent;
-  border: 2px solid rgb(0, 0, 0) !important;
+  border: 2px solid rgb(252, 164, 0) !important;
 }
 
 .TransBtn:hover {
-  background-color: #6f00ff;
-  border: 2px solid #6b65f4 !important;
+  background-color: rgb(252, 193, 0);
+  border: 2px solid rgb(252, 193, 0) !important;
 }
 
 @media only screen and (max-width: 768px) {
