@@ -12,11 +12,16 @@
 .TransBtn {
   background-color: transparent;
   border: 2px solid rgb(252, 164, 0) !important;
+  transition: 0.3s;
 }
 
 .TransBtn:hover {
   background-color: rgb(252, 193, 0);
   border: 2px solid rgb(252, 193, 0) !important;
+}
+
+.text-cus{
+  background-color: #b3b3b3 !important;
 }
 
 @media only screen and (max-width: 768px) {

@@ -25,7 +25,7 @@ const Main = ({
         <div className="w-100 top-0 position-absolute">
           <MainHead />
         </div>
-        <div className="w-100 d-flex flex-column text-center">
+        <div className="w-100 d-flex flex-column text-center text-white">
           <section className={`w-100 ${paraFs}`}>{ParaText}</section>
           <div className="w-100 d-flex justify-content-center">
             <small className={`${paraSmallFont} mt-3 mb-2`}>
