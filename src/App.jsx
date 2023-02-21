@@ -9,63 +9,63 @@ const App = () => {
     {
       id: 1,
       image:
-        "https://media.steampowered.com/apps/csgo/blog/images/fb_image.png",
+        "https://wallpapers.gg/wp-content/uploads/2017/08/Counter-Strike-Global-Offensive-Black-Logo.jpg",
       title: "CS:GO",
       Desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
     },
     {
       id: 2,
       image:
-        "https://media.steampowered.com/apps/csgo/blog/images/fb_image.png",
-      title: "CS:GO",
+        "https://w0.peakpx.com/wallpaper/180/943/HD-wallpaper-valorant-logo-valorant-games-2020-games-logo-minimalism-minimalist.jpg",
+      title: "Valorant",
       Desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
     },
     {
       id: 3,
       image:
-        "https://media.steampowered.com/apps/csgo/blog/images/fb_image.png",
-      title: "CS:GO",
+        "https://wallpapercave.com/dwp1x/wp11644850.jpg",
+      title: "Warzone 2",
       Desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
     },
     {
       id: 4,
       image:
-        "https://media.steampowered.com/apps/csgo/blog/images/fb_image.png",
+        "https://wallpapercave.com/dwp1x/wp11644850.jpg",
       title: "CS:GO",
       Desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
     },
     {
       id: 5,
       image:
-        "https://media.steampowered.com/apps/csgo/blog/images/fb_image.png",
+        "https://wallpapercave.com/dwp1x/wp11644850.jpg",
       title: "CS:GO",
       Desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
     },
     {
       id: 6,
       image:
-        "https://media.steampowered.com/apps/csgo/blog/images/fb_image.png",
+        "https://wallpapercave.com/dwp1x/wp11644850.jpg",
       title: "CS:GO",
       Desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
     },
     {
       id: 7,
       image:
-        "https://media.steampowered.com/apps/csgo/blog/images/fb_image.png",
+        "https://wallpapercave.com/dwp1x/wp11644850.jpg",
       title: "CS:GO",
       Desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
     },
     {
       id: 8,
       image:
-        "https://media.steampowered.com/apps/csgo/blog/images/fb_image.png",
+        "https://wallpapercave.com/dwp1x/wp11644850.jpg",
       title: "CS:GO",
       Desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
     },
     {
       id: 9,
       image:
-        "https://media.steampowered.com/apps/csgo/blog/images/fb_image.png",
+        "https://wallpapercave.com/dwp1x/wp11644850.jpg",
       title: "CS:GO",
       Desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
     },

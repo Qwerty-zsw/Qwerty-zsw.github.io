@@ -1,12 +1,12 @@
 .btnz {
-  background-color: #73C843;
-  border: 2px solid #73C843 !important;
+  background-color: #70a50d;
+  border: 2px solid #70a50d !important;
   transition: 0.3s;
 }
 
 .btnz:hover {
   background-color: transparent;
-  border: 2px solid #5eff01;
+  border: 2px solid #a6ff00;
 }
 
 .TransBtn {
@@ -16,8 +16,8 @@
 }
 
 .TransBtn:hover {
-  background-color: rgb(252, 193, 0);
-  border: 2px solid rgb(252, 193, 0) !important;
+  background-color: rgb(190, 146, 0);
+  border: 2px solid rgb(190, 146, 0) !important;
 }
 
 .text-cus{

@@ -1,9 +1,9 @@
 .icon{
+    transition: .3s;
     top:50%;
     right:2px;
     transform: translateY(-50%);
 }
 .SearchIcon:hover{
-    color: rgb(68, 68, 68) !important;
-    transition: .3s;
+    color: rgb(165, 165, 165) !important;
 }

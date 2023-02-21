@@ -7,10 +7,8 @@ const Main = ({
   height,
   paraFs,
   ParaText,
-  paraSecWidth,
   paraSmallFont,
   paraSmallText,
-  paraBtnVisibility,
   BtnText,
   BtnClassMain,
   BtnSecClassName,
@@ -19,8 +17,9 @@ const Main = ({
   return (
     <div
       style={{ backgroundImage: `url(${bgImg})` }}
-      className={`w-100 ${height} position-relative parallax-window`}
+      className={`w-100 ${height} position-relative parallax-window shadow-lg`}
     >
+      <div className="position-absolute w-100 h-100 bg-cus"></div>
       <div className="w-100 h-100 d-flex position-absolute justify-content-center align-items-center">
         <div className="w-100 top-0 position-absolute">
           <MainHead />
