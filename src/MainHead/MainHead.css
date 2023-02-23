@@ -7,3 +7,14 @@
 .SearchIcon:hover{
     color: rgb(165, 165, 165) !important;
 }
+.dropdown-toggle{
+    color: white !important;
+}
+.cusLog{
+    border: 2px solid white !important;
+}
+.cusLog:hover{
+    background-color: transparent !important;
+    color: white !important;
+    border: 2px solid white !important;
+}
