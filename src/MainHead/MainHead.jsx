@@ -48,7 +48,7 @@ const MainHead = () => {
                   OFFLINE
                 </NavDropdown.Item>
               </NavDropdown>
-              <LinkContainer to="login">
+              <LinkContainer to="/login">
               <Nav.Link className="bg-white text-black fw-bold cusLog">
                 ورود
               </Nav.Link></LinkContainer>

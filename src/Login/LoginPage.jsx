@@ -11,6 +11,7 @@ import {
   MDBInput,
   MDBIcon
 } from "mdb-react-ui-kit";
+import { LinkContainer } from "react-router-bootstrap";
 
 function LoginPage() {
   return (
@@ -32,7 +33,7 @@ function LoginPage() {
               </p>
 
               <MDBInput
-                wrapperClass="mb-4 mx-5 w-100"
+                wrapperClass="mb-4 border-0 mx-5 w-100"
                 labelClass="text-white"
                 label="نام کاربری"
                 id="formControlLg"
@@ -95,9 +96,10 @@ function LoginPage() {
               <div>
                 <p className="mb-0">
                   حساب کاربری ندارید؟{" "}
-                  <a href="#" class="fw-bold">
+                  <LinkContainer to="/Signup">
+                  <a class="fw-bold">
                     ثبت نام
-                  </a>
+                  </a></LinkContainer>
                 </p>
               </div>
             </MDBCardBody>
