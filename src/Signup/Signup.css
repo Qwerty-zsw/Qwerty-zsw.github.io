@@ -11,3 +11,6 @@
     rgba(143, 211, 244, 1)
   );
 }
+.zzz{
+  backdrop-filter: blur(10px) !important;
+}
