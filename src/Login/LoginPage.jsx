@@ -96,7 +96,7 @@ function LoginPage() {
               <div>
                 <p className="mb-0">
                   حساب کاربری ندارید؟{" "}
-                  <LinkContainer to="/Signup">
+                  <LinkContainer to="/ثبت-نام">
                   <a class="fw-bold">
                     ثبت نام
                   </a></LinkContainer>
