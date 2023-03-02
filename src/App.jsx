@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./HomePage";
 import LoginPage from "./Login/LoginPage";
+import NotFound from "./NotFound";
 import Signup from "./Signup/Signup";
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
           <Route path="ورود" element={<LoginPage />} />
           <Route path="ثبت-نام" element={<Signup />} />
         </Route>
+        <Route path="*" element={<NotFound />}/>
       </Routes>
     </div>
   );

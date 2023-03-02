@@ -14,11 +14,13 @@ function Signup() {
       fluid
       className="d-flex w-100 h-100 align-items-center justify-content-center bg-image"
       style={{
-        backgroundImage:
-          "url(../../public/wzG.jpg)",
+        backgroundImage: "url(../../public/wzG.jpg)",
       }}
     >
-      <MDBCard className="m-5" style={{ maxWidth: "600px" }}>
+      <MDBCard
+        className="bg-blur py-4 px-1 text-muted"
+        style={{ maxWidth: "600px", borderRadius: "3rem"}}
+      >
         <MDBCardBody className="px-5">
           <h2 className="text-uppercase text-center mb-5">ایجاد حساب کاربری</h2>
           <MDBInput
@@ -56,7 +58,7 @@ function Signup() {
               label="تمام قوانین را خوانده ام و موافقم"
             />
           </div>
-          <MDBBtn className="mb-4 w-100 gradient-custom-4" size="lg">
+          <MDBBtn className="mb-4 w-100 gradient-custom-4 text-black" size="lg">
             ثبت نام
           </MDBBtn>
         </MDBCardBody>

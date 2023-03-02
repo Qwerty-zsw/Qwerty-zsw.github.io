@@ -18,7 +18,7 @@ function LoginPage() {
     <>
     <MDBContainer
       fluid
-      className="d-flex justify-content-center align-items-center w-100 h-100"
+      className="d-flex justify-content-center align-items-center w-100 h-100 bg-image"
     >
       <MDBRow>
         <MDBCol col="12">
