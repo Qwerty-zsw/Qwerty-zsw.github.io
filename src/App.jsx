@@ -13,7 +13,7 @@ const App = () => {
           <Route path="ورود" element={<LoginPage />} />
           <Route path="ثبت-نام" element={<Signup />} />
         </Route>
-        <Route path="*" element={<NotFound />}/>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

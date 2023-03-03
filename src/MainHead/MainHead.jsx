@@ -17,16 +17,14 @@ const MainHead = () => {
           </Navbar.Brand>
           <Navbar.Toggle className="text-white" aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
-            <Form className="d-flex inpStyle position-relative mx-auto">
-              <a className="SearchIcon text-black" href="#">
-                <IoSearchCircleOutline className="fs-2 position-absolute icon" />
-              </a>
+            <Form className="d-flex position-relative mx-auto">
               <Form.Control
                 type="search"
                 placeholder="دنبال چه چیزی هستید؟"
-                className="d-flex rounded-4 pe-5 py-2"
+                className="d-flex rounded-4 py-2 ps-5"
                 aria-label="Search"
               />
+              <IoSearchCircleOutline className="fs-2 icon text-black" />
             </Form>
             <Nav
               className="my-2 my-lg-0"
@@ -49,9 +47,10 @@ const MainHead = () => {
                 </NavDropdown.Item>
               </NavDropdown>
               <LinkContainer to="/ورود">
-              <Nav.Link className="bg-white text-black fw-bold cusLog">
-                ورود
-              </Nav.Link></LinkContainer>
+                <Nav.Link className="bg-white text-black fw-bold cusLog">
+                  ورود
+                </Nav.Link>
+              </LinkContainer>
             </Nav>
           </Navbar.Collapse>
         </Container>

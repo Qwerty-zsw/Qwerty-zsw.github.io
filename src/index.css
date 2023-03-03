@@ -5,10 +5,7 @@ body,
   height: 100%;
   font-family: "IrSans";
 }
-@font-face {
-  font-family: "IrSans";
-  src: url(../public/IranSans.ttf);
-}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -18,4 +15,9 @@ body,
 a{
   text-decoration: none;
   cursor: pointer;
+}
+
+@font-face {
+  font-family: "IrSans";
+  src: url(../public/IranSans.ttf);
 }

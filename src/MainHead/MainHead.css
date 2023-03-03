@@ -1,20 +1,25 @@
 .icon{
+    position: absolute;
     transition: .3s;
     top:50%;
     right:2px;
     transform: translateY(-50%);
 }
-.SearchIcon:hover{
-    color: rgb(165, 165, 165) !important;
-}
+
 .dropdown-toggle{
     color: white !important;
 }
+
 .cusLog{
     border: 2px solid white !important;
 }
+
 .cusLog:hover{
     background-color: transparent !important;
     color: white !important;
     border: 2px solid white !important;
+}
+
+.form-control{
+    padding-left: 1rem !important;
 }
