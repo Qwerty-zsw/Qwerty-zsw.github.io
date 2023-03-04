@@ -6,15 +6,18 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { IoSearchCircleOutline } from "react-icons/io5";
 import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-router-dom";
 
 const MainHead = () => {
   return (
     <>
       <Navbar bg="transparent" expand="sm">
         <Container fluid className="text-white">
-          <Navbar.Brand className="cusLog2 text-white" href="#">
-            MasterGame
-          </Navbar.Brand>
+          <Link to={"/"}>
+            <Navbar.Brand className="cusLog2 text-white" href="#">
+              MasterGame
+            </Navbar.Brand>
+          </Link>
           <Navbar.Toggle className="text-white" aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Form className="d-flex position-relative mx-auto">
