@@ -74,7 +74,6 @@ const HomePage = () => {
         ParaText="تلاش برای رسیدن به آخرین سطح"
         paraSmallText="با مسترگیم یه پله از بقیه گیمر ها جلوتر باش!"
         paraSmallFont="font-s"
-        height="cus-H"
         bgImg="../public/asd.png"
       />
       <div className="bgc-cus">

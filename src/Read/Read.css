@@ -1,0 +1,11 @@
+.bg-cust{
+    background-color: #001c38;
+    box-shadow: 15px 0px 25px 0px #007cce;
+}
+.bg-custom1{
+    background-color: #011929;
+}
+
+li{
+    list-style-type: none;
+}

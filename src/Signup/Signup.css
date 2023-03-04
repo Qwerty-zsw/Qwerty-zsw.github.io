@@ -11,3 +11,7 @@
     rgba(143, 211, 244, 1)
   );
 }
+
+.form-label{
+  color: white !important;
+}

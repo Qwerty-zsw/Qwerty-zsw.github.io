@@ -3,6 +3,7 @@ import HomePage from "./HomePage";
 import LoginPage from "./Login/LoginPage";
 import NotFound from "./NotFound";
 import Signup from "./Signup/Signup";
+import Read from "./Read/Read";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
           <Route index element={<HomePage />} />
           <Route path="ورود" element={<LoginPage />} />
           <Route path="ثبت-نام" element={<Signup />} />
+          <Route path="CSGO" element={<Read />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
