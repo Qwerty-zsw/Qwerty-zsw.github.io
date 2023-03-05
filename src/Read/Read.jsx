@@ -1,5 +1,4 @@
 import "./Read.css";
-import { Container } from "react-bootstrap";
 import Footer from "../Footer/Footer";
 import MainHead from "../MainHead/MainHead";
 const Read = () => {
