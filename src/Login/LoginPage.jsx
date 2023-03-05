@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./LoginPage.css";
 import "mdb-react-ui-kit/dist/css/mdb.rtl.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { LinkContainer } from "react-router-bootstrap";
 import {
   MDBBtn,
   MDBContainer,
@@ -12,7 +13,10 @@ import {
   MDBInput,
   MDBIcon,
 } from "mdb-react-ui-kit";
-import { LinkContainer } from "react-router-bootstrap";
+
+const userReg = /^[a-zA-Z0-9_-]{3,16}$/;
+const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const passReg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -21,12 +25,33 @@ const LoginPage = () => {
     setShowPassword(!showPassword);
   };
 
+  const [InpVal, setInpVal] = useState("");
+  const [InpValpass, setInpValpass] = useState("");
+  const [regErr, setregErr] = useState(true);
+  const [borderColor, setborderColor] = useState(true);
+
+  function clickHandler(e) {
+    e.preventDefault()
+
+    const userCheck = userReg.test(InpVal);
+    const emailCheck = emailReg.test(InpVal);
+    const passCheck = passReg.test(InpValpass);
+  
+    if ( emailCheck || userCheck && passCheck) {
+      setregErr(true);
+      setborderColor(true);
+    } else {
+      setregErr(false);
+      setborderColor(false);
+    }
+  }
+
   return (
     <>
       <MDBContainer
         fluid
         className="d-flex justify-content-center align-items-center w-100 h-100 bg-image"
-        style={{backgroundImage:`url("../../public/csG.jpg")`}}
+        style={{ backgroundImage: `url("../../public/csG.jpg")` }}
       >
         <MDBRow>
           <MDBCol col="12">
@@ -40,18 +65,24 @@ const LoginPage = () => {
                   لطفا نام کاربری و رمزعبور خود را وارد کنید
                 </p>
                 <MDBInput
-                  wrapperClass="mb-4 border-0 w-100"
+                  wrapperClass={`mb-4 border-0 w-100 ${
+                    borderColor ? "border-success" : "border-danger"
+                  }`}
                   labelClass="text-white"
                   label="نام کاربری یا ایمیل"
                   id="formControlLg"
                   type="email"
                   size="lg"
+                  value={InpVal}
+                  onChange={(e) => setInpVal(e.target.value)}
                 />
                 <MDBInput
                   wrapperClass="mb-4 w-100"
                   labelClass="text-white"
                   label="رمز عبور"
                   id="formControlLg"
+                  value={InpValpass}
+                  onChange={(e) => setInpValpass(e.target.value)}
                   type={showPassword ? "text" : "password"}
                   size="lg"
                   icon={
@@ -62,6 +93,13 @@ const LoginPage = () => {
                     />
                   }
                 />
+                <small
+                  className={`w-100 text-danger mb-3 ${
+                    regErr ? "d-none" : "d-block"
+                  }`}
+                >
+                  ایمیل/نام کاربری یا پسورد اشتباه است
+                </small>
                 <div className="form-check mb-4 d-flex justify-content-start w-100">
                   <input
                     className="form-check-input"
@@ -87,6 +125,7 @@ const LoginPage = () => {
                   color="light"
                   rippleColor="white"
                   size="lg"
+                  onClick={clickHandler}
                 >
                   ورود
                 </MDBBtn>
