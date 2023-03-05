@@ -1,11 +1,56 @@
-.bg-cust{
-    background-color: #001c38;
-    box-shadow: 15px 0px 25px 0px #007cce;
+.bg-cust {
+  background-color: #001c38;
+  box-shadow: -15px 0px 25px 0px #007cce;
 }
-.bg-custom1{
-    background-color: #011929;
+.bg-custom1 {
+  background-color: #011929;
 }
 
-li{
-    list-style-type: none;
+li {
+  list-style-type: none;
+}
+.w-85 {
+  width: 85%;
+}
+
+@media only screen and (max-width: 992px) {
+  .mobile-read {
+    width: 100%;
+    font-size: 15px;
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .mobile-hide {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1517px) {
+  .mobile-main {
+    width: 92% !important;
+  }
+}
+
+@media only screen and (max-width: 1517px) {
+  .mobile-hide {
+    width: 40% !important;
+  }
+}
+@media only screen and (max-width: 1440px) {
+  .mobile-hide {
+    width: 50% !important;
+  }
+}
+
+@media only screen and (max-width: 1125px) {
+    .mobile-hide {
+      width: 60% !important;
+    }
+  }
+
+@media only screen and (max-width: 1517px) {
+  .main-text {
+    width: 110% !important;
+  }
 }

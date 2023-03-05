@@ -1,6 +1,12 @@
-.h-cus{
-    height: 7%;
+.h-cus {
+  height: 7%;
 }
-.text-cus{
-    direction: ltr;
+.text-cus {
+  direction: ltr;
+}
+@media only screen and (max-width: 992px) {
+  .mobile-cus {
+    height: 15%;
+    flex-direction: column !important;
+  }
 }
