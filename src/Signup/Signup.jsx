@@ -7,7 +7,6 @@ import {
   MDBCardBody,
   MDBInput,
   MDBCheckbox,
-  MDBIcon,
 } from "mdb-react-ui-kit";
 
 const userReg = /^[a-zA-Z0-9_-]{3,16}$/;
