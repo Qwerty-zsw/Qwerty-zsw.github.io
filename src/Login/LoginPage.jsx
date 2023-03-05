@@ -65,8 +65,8 @@ const LoginPage = () => {
                   لطفا نام کاربری و رمزعبور خود را وارد کنید
                 </p>
                 <MDBInput
-                  wrapperClass={`mb-4 border-0 w-100 ${
-                    borderColor ? "border-success" : "border-danger"
+                  wrapperClass={`mb-4 w-100 ${
+                    borderColor ? "border-transparent" : "zzz"
                   }`}
                   labelClass="text-white"
                   label="نام کاربری یا ایمیل"
@@ -77,7 +77,9 @@ const LoginPage = () => {
                   onChange={(e) => setInpVal(e.target.value)}
                 />
                 <MDBInput
-                  wrapperClass="mb-4 w-100"
+                  wrapperClass={`mb-4 w-100 ${
+                    borderColor ? "border-transparent" : "zzz"
+                  }`}
                   labelClass="text-white"
                   label="رمز عبور"
                   id="formControlLg"

@@ -20,15 +20,15 @@ function Signup() {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-
   const [InpVal, setInpVal] = useState("");
+  const [InpValEmail, setInpValEmail] = useState("");
   const [InpValpass, setInpValpass] = useState("");
   const [regErr, setregErr] = useState(true);
   const [borderColor, setborderColor] = useState(true);
 
   const clickHandler = (e) => {
     e.preventDefault();
-
+    
     const userCheck = userReg.test(InpVal);
     const emailCheck = emailReg.test(InpVal);
     const passCheck = passReg.test(InpValpass);
@@ -57,49 +57,47 @@ function Signup() {
         <MDBCardBody className="px-5">
           <h2 className="text-uppercase text-center mb-5">ایجاد حساب کاربری</h2>
           <MDBInput
-            wrapperClass="mb-4"
+            wrapperClass={`mb-4 ${
+              borderColor ? "border-transparent" : "zzz"
+            }`}
             label="نام کاربری"
             size="lg"
             id="form1"
             type="text"
+            value={InpVal}
+            onChange={(e) => setInpVal(e.target.value)}
           />
           <MDBInput
-            wrapperClass="mb-4"
+            wrapperClass={`mb-4 ${
+              borderColor ? "border-transparent" : "zzz"
+            }`}
             label="ایمیل"
             size="lg"
             id="form2"
             type="email"
+            value={InpValEmail}
+            onChange={(e) => setInpValEmail(e.target.value)}
           />
           <MDBInput
-            wrapperClass="mb-4 w-100"
+            wrapperClass={`mb-4 w-100 ${
+              borderColor ? "border-transparent" : "zzz"
+            }`}
             labelClass="text-white"
             label="رمز عبور"
             id="formControlLg"
+            value={InpValpass}
+            onChange={(e) => setInpValpass(e.target.value)}
             type={showPassword ? "text" : "password"}
             size="lg"
-            icon={
-              <MDBIcon
-                icon={showPassword ? "eye-slash" : "eye"}
-                className="clickable"
-                onClick={togglePasswordVisibility}
-              />
-            }
           />
-          <MDBInput
-            wrapperClass="mb-4 w-100"
-            labelClass="text-white"
-            label="تکرار رمز عبور"
-            id="formControlLg"
-            type={showPassword ? "text" : "password"}
-            size="lg"
-            icon={
-              <MDBIcon
-                icon={showPassword ? "eye-slash" : "eye"}
-                className="clickable"
-                onClick={togglePasswordVisibility}
-              />
-            }
-          />
+          <small
+                  className={`w-100 text-danger mb-3 ${
+                    regErr ? "d-none" : "d-block"
+                  }`}
+                >
+                  ایمیل/نام کاربری یا پسورد اشتباه است
+                </small>
+
           <div className="form-check mb-4 d-flex justify-content-start w-100">
             <input
               className="form-check-input"
