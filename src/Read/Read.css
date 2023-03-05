@@ -1,5 +1,5 @@
-*{
-  text-align: justify;
+.text-justify{
+  text-align: justify !important;
 }
 
 .bg-cust {

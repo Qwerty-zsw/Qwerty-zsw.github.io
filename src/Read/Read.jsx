@@ -5,14 +5,14 @@ const Read = () => {
   return (
     <>
       <div
-        className="w-100 h-75 text-center text-white flex-column bg-image d-flex justify-content-center align-items-center"
+        className="w-100 h-75  text-center text-white flex-column bg-image d-flex justify-content-center align-items-center"
         style={{ backgroundImage: `url("../../public/ReadCS.jpg")` }}
       >
         <div className="position-absolute w-100 h-100 bg-cus"></div>
         <div className="w-100 h-100 position-absolute">
           <MainHead />
         </div>
-        <div>
+        <div className="w-100">
           <h1 className="fw-bold">به بخش ریزترین نکات CSGO خوش آمدید</h1>
           <h6 className="mt-3 text-center fw-bold mx-3">
             تو اینجا پرو پلیر ها میتونن نکاتی رو که خیلی کم بهش توجه میشه رو با
@@ -20,7 +20,7 @@ const Read = () => {
           </h6>
         </div>
       </div>
-      <div className="w-100 d-flex justify-content-center h-auto bg-custom1 pt-5 pb-5">
+      <div className="w-100 text-justify d-flex justify-content-center h-auto bg-custom1 pt-5 pb-5">
         <div className="w-85 mobile-main flex-row-reverse h-100 d-flex mobile-read">
           <div className="w-25 h-auto bg-cust rounded-8 ms-4 text-white mobile-hide">
             <ul className="w-100 h-100">
