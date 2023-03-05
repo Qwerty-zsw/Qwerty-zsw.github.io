@@ -39,13 +39,13 @@ const MainHead = () => {
                 title="آموزش ها"
                 id="navbarScrollingDropdown"
               >
-                <NavDropdown.Item className="fw-bold" href="#action3">
+                <NavDropdown.Item className="fw-bold" href="#">
                   MMORPG
                 </NavDropdown.Item>
-                <NavDropdown.Item className="fw-bold" href="#action4">
+                <NavDropdown.Item className="fw-bold" href="#">
                   FPS
                 </NavDropdown.Item>
-                <NavDropdown.Item className="fw-bold" href="#action5">
+                <NavDropdown.Item className="fw-bold" href="#">
                   OFFLINE
                 </NavDropdown.Item>
               </NavDropdown>

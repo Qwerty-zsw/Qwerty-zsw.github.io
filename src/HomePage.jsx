@@ -3,66 +3,20 @@ import { Col } from "react-bootstrap";
 import Footer from "./Footer/Footer";
 import Main from "./Main/Main";
 import MainCard from "./MainCard/MainCard";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const HomePage = () => {
-  const Data = [
-    {
-      id: 1,
-      image:
-        "../public/cs.jpg",
-      title: "CS:GO",
-      Desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
-    },
-    {
-      id: 2,
-      image:
-        "../public/valo.jpg",
-      title: "Valorant",
-      Desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
-    },
-    {
-      id: 3,
-      image: "../public/wz2.jpg",
-      title: "Warzone 2",
-      Desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
-    },
-    {
-      id: 4,
-      image: "../public/wz2.jpg",
-      title: "CS:GO",
-      Desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
-    },
-    {
-      id: 5,
-      image: "../public/wz2.jpg",
-      title: "CS:GO",
-      Desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
-    },
-    {
-      id: 6,
-      image: "../public/wz2.jpg",
-      title: "CS:GO",
-      Desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
-    },
-    {
-      id: 7,
-      image: "../public/wz2.jpg",
-      title: "CS:GO",
-      Desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
-    },
-    {
-      id: 8,
-      image: "../public/wz2.jpg",
-      title: "CS:GO",
-      Desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
-    },
-    {
-      id: 9,
-      image: "../public/wz2.jpg",
-      title: "CS:GO",
-      Desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
-    },
-  ];
+  const [GamesData, setGamesData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3500/CardGames")
+      .then((data) => {
+        setGamesData(data.data);
+      })
+      .catch((err) => console.log(err));
+  });
 
   return (
     <div className="w-100 h-100">
@@ -78,16 +32,20 @@ const HomePage = () => {
       />
       <div className="bgc-cus">
         <div className="w-100 d-flex justify-content-center flex-wrap gap-4 py-5">
-          {Data.map((item) => {
+          {GamesData.map((item) => {
             return (
-              <Col className="px-4" xs={12} sm={5} lg={3}>
-                <a key={`productList-${item.id}`}>
-                  <MainCard
-                    productImg={item.image}
-                    TitleName={item.title}
-                    Description={item.Desc}
-                  />
-                </a>
+              <Col
+                className="px-4"
+                xs={12}
+                sm={5}
+                lg={3}
+                key={`productList-${item.id}`}
+              >
+                <MainCard
+                  productImg={item.image}
+                  TitleName={item.title}
+                  Description={item.Desc}
+                />
               </Col>
             );
           })}
