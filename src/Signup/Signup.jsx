@@ -10,11 +10,36 @@ import {
   MDBIcon,
 } from "mdb-react-ui-kit";
 
+const userReg = /^[a-zA-Z0-9_-]{3,16}$/;
+const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const passReg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+
 function Signup() {
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
+  };
+
+  const [InpVal, setInpVal] = useState("");
+  const [InpValpass, setInpValpass] = useState("");
+  const [regErr, setregErr] = useState(true);
+  const [borderColor, setborderColor] = useState(true);
+
+  const clickHandler = (e) => {
+    e.preventDefault();
+
+    const userCheck = userReg.test(InpVal);
+    const emailCheck = emailReg.test(InpVal);
+    const passCheck = passReg.test(InpValpass);
+
+    if ((passCheck && emailCheck) || (userCheck && passCheck)) {
+      setregErr(true);
+      setborderColor(true);
+    } else {
+      setregErr(false);
+      setborderColor(false);
+    }
   };
 
   return (
@@ -98,7 +123,11 @@ function Signup() {
               label="تمام قوانین را خوانده ام و موافقم"
             />
           </div>
-          <MDBBtn className="mb-4 w-100 gradient-custom-4 text-black" size="lg">
+          <MDBBtn
+            className="mb-4 w-100 gradient-custom-4 text-black"
+            size="lg"
+            onClick={clickHandler}
+          >
             ثبت نام
           </MDBBtn>
         </MDBCardBody>

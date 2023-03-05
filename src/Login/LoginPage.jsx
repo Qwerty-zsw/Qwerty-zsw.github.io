@@ -16,7 +16,7 @@ import {
 
 const userReg = /^[a-zA-Z0-9_-]{3,16}$/;
 const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const passReg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
+const passReg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -30,21 +30,21 @@ const LoginPage = () => {
   const [regErr, setregErr] = useState(true);
   const [borderColor, setborderColor] = useState(true);
 
-  function clickHandler(e) {
-    e.preventDefault()
+  const clickHandler = (e) => {
+    e.preventDefault();
 
     const userCheck = userReg.test(InpVal);
     const emailCheck = emailReg.test(InpVal);
     const passCheck = passReg.test(InpValpass);
-  
-    if ( emailCheck || userCheck && passCheck) {
+
+    if ((passCheck && emailCheck) || (userCheck && passCheck)) {
       setregErr(true);
       setborderColor(true);
     } else {
       setregErr(false);
       setborderColor(false);
     }
-  }
+  };
 
   return (
     <>
