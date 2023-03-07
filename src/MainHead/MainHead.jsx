@@ -7,18 +7,29 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { IoSearchCircleOutline } from "react-icons/io5";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
+import { MdMenu } from 'react-icons/md';
+import { BiMenuAltLeft } from 'react-icons/bi';
+import { useState } from "react";
 
 const MainHead = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <>
       <Navbar bg="transparent" expand="sm">
         <Container fluid className="text-white">
           <Link to={"/"}>
-            <Navbar.Brand className="cusLog2 text-white" href="#">
+            <Navbar.Brand className="cusLog2 text-white fw-bold" href="#">
               MasterGame
             </Navbar.Brand>
           </Link>
-          <Navbar.Toggle className="text-white" aria-controls="navbarScroll" />
+          <Navbar.Toggle className="text-light fs-1" aria-controls="navbarScroll" onClick={handleToggle}>
+          {isOpen ? <BiMenuAltLeft /> : <MdMenu />}
+          </Navbar.Toggle>
           <Navbar.Collapse id="navbarScroll">
             <Form className="d-flex position-relative mx-auto">
               <Form.Control
