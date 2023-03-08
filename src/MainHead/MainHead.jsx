@@ -14,10 +14,6 @@ import { useState } from "react";
 const MainHead = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleToggle = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
     <>
       <Navbar bg="transparent" expand="sm">
@@ -27,7 +23,7 @@ const MainHead = () => {
               MasterGame
             </Navbar.Brand>
           </Link>
-          <Navbar.Toggle className="text-light fs-1" aria-controls="navbarScroll" onClick={handleToggle}>
+          <Navbar.Toggle className="text-light fs-1" aria-controls="navbarScroll" onClick={setIsOpen(!isOpen)}>
           {isOpen ? <BiMenuAltLeft /> : <MdMenu />}
           </Navbar.Toggle>
           <Navbar.Collapse id="navbarScroll">
