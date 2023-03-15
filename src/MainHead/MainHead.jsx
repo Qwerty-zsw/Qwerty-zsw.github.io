@@ -14,6 +14,10 @@ import { useState } from "react";
 const MainHead = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const clichandler = ()=>{
+    setIsOpen(!isOpen)
+  }
+
   return (
     <>
       <Navbar bg="transparent" expand="sm">
@@ -23,7 +27,7 @@ const MainHead = () => {
               MasterGame
             </Navbar.Brand>
           </Link>
-          <Navbar.Toggle className="text-light fs-1" aria-controls="navbarScroll" onClick={setIsOpen(!isOpen)}>
+          <Navbar.Toggle className="text-light fs-1" aria-controls="navbarScroll" onClick={clichandler}>
           {isOpen ? <BiMenuAltLeft /> : <MdMenu />}
           </Navbar.Toggle>
           <Navbar.Collapse id="navbarScroll">
