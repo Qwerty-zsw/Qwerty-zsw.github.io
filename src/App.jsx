@@ -4,7 +4,7 @@ import LoginPage from "./Login/LoginPage";
 import NotFound from "./NotFound";
 import Signup from "./Signup/Signup";
 import Read from "./Read/Read";
-import RRRRR from "./RRRRR/RRRRR";
+import PassReset from "./PassReset/PassReset";
 
 const App = () => {
   return (
@@ -15,7 +15,7 @@ const App = () => {
           <Route path="ورود" element={<LoginPage />} />
           <Route path="ثبت-نام" element={<Signup />} />
           <Route path="CSGO" element={<Read />} />
-          <Route path="ریست-پسورد" element={<RRRRR />}/>
+          <Route path="ریست-پسورد" element={<PassReset />}/>
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -1,4 +1,4 @@
-import "./resetPass.css"
+import "./PassReset.css"
 import { useState } from "react";
 import {
   MDBBtn,
@@ -10,7 +10,7 @@ import {
   MDBInput,
 } from "mdb-react-ui-kit";
 
-const RRRRR = () => {
+const PassReset = () => {
 
   const userReg = /^[a-zA-Z0-9_-]{3,16}$/;
   const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -90,4 +90,4 @@ const RRRRR = () => {
   );
 };
 
-export default RRRRR;
+export default PassReset;
