@@ -1,7 +1,7 @@
 import { useState } from "react";
-import "./LoginPage.css";
 import "mdb-react-ui-kit/dist/css/mdb.rtl.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import "./LoginPage.css";
 import { LinkContainer } from "react-router-bootstrap";
 import {
   MDBBtn,
@@ -13,6 +13,7 @@ import {
   MDBInput,
   MDBIcon,
 } from "mdb-react-ui-kit";
+import { Link } from "react-router-dom";
 
 const userReg = /^[a-zA-Z0-9_-]{3,16}$/;
 const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -118,9 +119,9 @@ const LoginPage = () => {
                   </label>
                 </div>
 
-                <p className="small mb-3 pb-lg-2">
+                <Link to={"/ریست-پسورد"} className="small mb-3 pb-lg-2">
                   <a href="#">پسورد خود را فراموش کرده اید؟</a>
-                </p>
+                </Link>
                 <MDBBtn
                   outline
                   className="mx-2 px-5 rounded-5"
