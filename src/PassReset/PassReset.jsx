@@ -1,5 +1,4 @@
 import "./PassReset.css";
-import { useState } from "react";
 import {
   MDBBtn,
   MDBContainer,
@@ -10,28 +9,15 @@ import {
   MDBInput,
 } from "mdb-react-ui-kit";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { Form } from "react-bootstrap";
 
 const PassReset = () => {
-  const userReg = /^[a-zA-Z0-9_-]{3,16}$/;
-  const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+  const { register, handleSubmit } = useForm();
 
-  const [InpVal, setInpVal] = useState("");
-  const [regErr, setregErr] = useState(true);
-  const [borderColor, setborderColor] = useState(true);
-
-  const clickHandler = (e) => {
-    e.preventDefault();
-
-    const userCheck = userReg.test(InpVal);
-    const emailCheck = emailReg.test(InpVal);
-
-    if (userCheck || emailCheck) {
-      setregErr(true);
-      setborderColor(true);
-    } else {
-      setregErr(false);
-      setborderColor(false);
-    }
+  const Onsubmit = (data) => {
+    console.log(data);
   };
 
   return (
@@ -54,37 +40,28 @@ const PassReset = () => {
                 <p className="text-white-50 mb-5 mt-2">
                   لطفا نام کاربری یا ایمیل خود را وارد کنید
                 </p>
-                <MDBInput
-                  wrapperClass={`mb-4 w-100 ${
-                    borderColor ? "border-transparent" : "zzz"
-                  }`}
-                  labelClass="text-white"
-                  label="نام کاربری یا ایمیل"
-                  id="formControlLg"
-                  type="email"
-                  size="lg"
-                  value={InpVal}
-                  onChange={(e) => setInpVal(e.target.value)}
-                />
-                <small
-                  className={`w-100 text-danger mb-3 ${
-                    regErr ? "d-none" : "d-block"
-                  }`}
-                >
-                  ایمیل یا نام کاربری اشتباه است
-                </small>
-                <Link to={"/کد-تایید"}>
-                  <MDBBtn
-                    outline
-                    className="mx-2 px-5 rounded-5"
-                    color="light"
-                    rippleColor="white"
+
+                <Form className="d-flex flex-column align-items-center mx-auto w-100" onSubmit={handleSubmit(Onsubmit)}>
+                  <MDBInput
+                    wrapperClass="mb-4 w-100"
+                    labelClass="text-white"
+                    label="نام کاربری یا ایمیل"
+                    id="formControlLg"
+                    type="text"
                     size="lg"
-                    onClick={clickHandler}
-                  >
-                    ارسال
-                  </MDBBtn>
-                </Link>
+                    {...register("email")}
+                  />
+                    <MDBBtn
+                      outline
+                      className="mx-2 px-5 rounded-5"
+                      color="light"
+                      rippleColor="white"
+                      size="lg"
+                      type="submit"
+                    >
+                      ارسال
+                    </MDBBtn>
+                </Form>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
