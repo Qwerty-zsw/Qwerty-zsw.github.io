@@ -1,4 +1,3 @@
-import "./PassReset.css";
 import { useState } from "react";
 import {
   MDBBtn,
@@ -9,23 +8,21 @@ import {
   MDBCardBody,
   MDBInput,
 } from "mdb-react-ui-kit";
-import { Link } from "react-router-dom";
 
-const PassReset = () => {
-  const userReg = /^[a-zA-Z0-9_-]{3,16}$/;
-  const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const ConfirmCode = () => {
+
+  const confirmReg = /^[0-9]{6}$/;
 
   const [InpVal, setInpVal] = useState("");
   const [regErr, setregErr] = useState(true);
   const [borderColor, setborderColor] = useState(true);
-
+  
   const clickHandler = (e) => {
     e.preventDefault();
 
-    const userCheck = userReg.test(InpVal);
-    const emailCheck = emailReg.test(InpVal);
+    const confirmCheck = confirmReg.test(InpVal);
 
-    if (userCheck || emailCheck) {
+    if (confirmCheck) {
       setregErr(true);
       setborderColor(true);
     } else {
@@ -39,9 +36,7 @@ const PassReset = () => {
       <MDBContainer
         fluid
         className="w-100 h-100 d-flex justify-content-center align-items-center bg-image"
-        style={{
-          backgroundImage: `url("https://wallpaperaccess.com/full/5492411.jpg")`,
-        }}
+        style={{ backgroundImage: `url("https://wallpaperaccess.com/full/5492411.jpg")` }}
       >
         <MDBRow>
           <MDBCol col="12">
@@ -50,16 +45,16 @@ const PassReset = () => {
               style={{ borderRadius: "3rem", minWidth: "550px" }}
             >
               <MDBCardBody className="p-5 d-flex flex-column align-items-center mx-auto w-100">
-                <h2 className="fw-bold mb-2 text-uppercase">ریست پسورد</h2>
+                <h2 className="fw-bold mb-2 text-uppercase">کد تایید</h2>
                 <p className="text-white-50 mb-5 mt-2">
-                  لطفا نام کاربری یا ایمیل خود را وارد کنید
+                  لطفا کد تایید ارسال شده را وارد کنید
                 </p>
                 <MDBInput
                   wrapperClass={`mb-4 w-100 ${
                     borderColor ? "border-transparent" : "zzz"
                   }`}
                   labelClass="text-white"
-                  label="نام کاربری یا ایمیل"
+                  label="کد تایید"
                   id="formControlLg"
                   type="email"
                   size="lg"
@@ -71,20 +66,18 @@ const PassReset = () => {
                     regErr ? "d-none" : "d-block"
                   }`}
                 >
-                  ایمیل یا نام کاربری اشتباه است
+                  کد تایید مطابقت ندارد
                 </small>
-                <Link to={"/کد-تایید"}>
-                  <MDBBtn
-                    outline
-                    className="mx-2 px-5 rounded-5"
-                    color="light"
-                    rippleColor="white"
-                    size="lg"
-                    onClick={clickHandler}
-                  >
-                    ارسال
-                  </MDBBtn>
-                </Link>
+                <MDBBtn
+                  outline
+                  className="mx-2 px-5 rounded-5"
+                  color="light"
+                  rippleColor="white"
+                  size="lg"
+                  onClick={clickHandler}
+                >
+                  تایید
+                </MDBBtn>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
@@ -94,4 +87,4 @@ const PassReset = () => {
   );
 };
 
-export default PassReset;
+export default ConfirmCode;

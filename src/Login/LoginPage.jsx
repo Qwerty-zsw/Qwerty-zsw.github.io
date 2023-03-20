@@ -163,7 +163,7 @@ const LoginPage = () => {
                 <div>
                   <p className="mb-0">
                     حساب کاربری ندارید؟{" "}
-                    <LinkContainer to="/ثبت-نام">
+                    <LinkContainer to={"/ثبت-نام"}>
                       <a class="fw-bold">ثبت نام</a>
                     </LinkContainer>
                   </p>
