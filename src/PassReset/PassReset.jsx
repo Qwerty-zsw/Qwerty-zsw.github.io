@@ -8,11 +8,15 @@ import {
   MDBCardBody,
   MDBInput,
 } from "mdb-react-ui-kit";
-import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Form } from "react-bootstrap";
+import * as yup from "yup";
 
 const PassReset = () => {
+
+  const schema = yup.object().shape({
+    email: yup.string().email().required()
+  })
   
   const { register, handleSubmit } = useForm();
 
@@ -57,11 +61,11 @@ const PassReset = () => {
                       color="light"
                       rippleColor="white"
                       size="lg"
-                      type="submit"
                     >
                       ارسال
                     </MDBBtn>
                 </Form>
+                
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
