@@ -10,15 +10,23 @@ import {
 } from "mdb-react-ui-kit";
 import { useForm } from "react-hook-form";
 import { Form } from "react-bootstrap";
+import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 const PassReset = () => {
-
   const schema = yup.object().shape({
-    email: yup.string().email().required()
-  })
-  
-  const { register, handleSubmit } = useForm();
+    email: yup
+      .string()
+      .matches(
+        /^(?:(?!.*\s)[a-zA-Z0-9]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+|[a-zA-Z0-9]+)$/
+      )
+      .min(4)
+      .required(),
+  });
+
+  const { register, handleSubmit } = useForm({
+    resolver: yupResolver(schema),
+  });
 
   const Onsubmit = (data) => {
     console.log(data);
@@ -45,7 +53,10 @@ const PassReset = () => {
                   لطفا نام کاربری یا ایمیل خود را وارد کنید
                 </p>
 
-                <Form className="d-flex flex-column align-items-center mx-auto w-100" onSubmit={handleSubmit(Onsubmit)}>
+                <Form
+                  className="d-flex flex-column align-items-center mx-auto w-100"
+                  onSubmit={handleSubmit(Onsubmit)}
+                >
                   <MDBInput
                     wrapperClass="mb-4 w-100"
                     labelClass="text-white"
@@ -55,17 +66,16 @@ const PassReset = () => {
                     size="lg"
                     {...register("email")}
                   />
-                    <MDBBtn
-                      outline
-                      className="mx-2 px-5 rounded-5"
-                      color="light"
-                      rippleColor="white"
-                      size="lg"
-                    >
-                      ارسال
-                    </MDBBtn>
+                  <MDBBtn
+                    outline
+                    className="mx-2 px-5 rounded-5"
+                    color="light"
+                    rippleColor="white"
+                    size="lg"
+                  >
+                    ارسال
+                  </MDBBtn>
                 </Form>
-                
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
