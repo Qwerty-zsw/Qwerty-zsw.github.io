@@ -15,16 +15,21 @@ import * as yup from "yup";
 
 const PassReset = () => {
   const schema = yup.object().shape({
-    email: yup
+    emailORuser: yup
       .string()
       .matches(
-        /^(?:(?!.*\s)[a-zA-Z0-9]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+|[a-zA-Z0-9]+)$/
+        /^(?:(?!.*\s)[a-zA-Z0-9]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+|[a-zA-Z0-9]+)$/,
+        "ایمیل یا نام کاربری وجود ندارد!"
       )
-      .min(4)
+      .min(4, "تعداد حروف کمتر از 4 کلمه است!")
       .required(),
   });
 
-  const { register, handleSubmit } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     resolver: yupResolver(schema),
   });
 
@@ -58,14 +63,17 @@ const PassReset = () => {
                   onSubmit={handleSubmit(Onsubmit)}
                 >
                   <MDBInput
-                    wrapperClass="mb-4 w-100"
+                    wrapperClass="mb-3 w-100"
                     labelClass="text-white"
                     label="نام کاربری یا ایمیل"
                     id="formControlLg"
                     type="text"
                     size="lg"
-                    {...register("email")}
+                    {...register("emailORuser")}
                   />
+                  <small className="text-danger mb-4">
+                    {errors.emailORuser?.message}
+                  </small>
                   <MDBBtn
                     outline
                     className="mx-2 px-5 rounded-5"

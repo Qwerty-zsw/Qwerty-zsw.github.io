@@ -13,16 +13,31 @@ import * as yup from "yup";
 
 const Signup = () => {
   const schema = yup.object().shape({
-    user: yup.string().min(4).max(16).required(),
-    email: yup.string().email().required(),
-    password: yup.string().min(6).max(20).required(),
+    user: yup
+      .string()
+      .required("لطفا نام کاربری را وارد کنید!")
+      .min(4, "تعداد حروف کمتر از 4 کلمه است!")
+      .max(16, "تعداد حروف بیشتر از 16 کلمه است!"),
+    email: yup
+      .string()
+      .email("ایمیل اشتباه است!")
+      .required("لطفا ایمیل را وارد کنید!"),
+    password: yup
+      .string()
+      .required("لطفا رمز عبور خود را وارد کنید!")
+      .min(6, "تعداد حروف کمتر از 6 کلمه است!")
+      .max(20, "تعداد حروف بیشتر از 20 کلمه است!"),
     confirmPassword: yup
       .string()
-      .oneOf([yup.ref("password"), null])
-      .required(),
+      .oneOf([yup.ref("password"), null], "پسورد مطابقت ندارد!")
+      .required("لطفا رمز عبور خود را دوباره وارد کنید!"),
   });
 
-  const { register, handleSubmit } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     resolver: yupResolver(schema),
   });
 
@@ -49,23 +64,25 @@ const Signup = () => {
             onSubmit={handleSubmit(OnSubmit)}
           >
             <MDBInput
-              wrapperClass="mb-4"
+              wrapperClass="mb-1 w-100"
               label="نام کاربری"
               size="lg"
               id="form1"
               type="text"
               {...register("user")}
             />
+            <small className="text-danger mb-3">{errors.user?.message}</small>
             <MDBInput
-              wrapperClass="mb-4"
+              wrapperClass="mb-1 w-100"
               label="ایمیل"
               size="lg"
               id="form2"
               type="email"
               {...register("email")}
             />
+            <small className="text-danger mb-3">{errors.email?.message}</small>
             <MDBInput
-              wrapperClass="mb-4 w-100"
+              wrapperClass="mb-1 w-100"
               labelClass="text-white"
               label="رمز عبور"
               id="formControlLg"
@@ -73,8 +90,11 @@ const Signup = () => {
               type="password"
               {...register("password")}
             />
+            <small className="text-danger mb-3">
+              {errors.password?.message}
+            </small>
             <MDBInput
-              wrapperClass="mb-4 w-100"
+              wrapperClass="mb-1 w-100"
               labelClass="text-white"
               label="تکرار رمز عبور"
               id="formControlLg"
@@ -82,7 +102,9 @@ const Signup = () => {
               type="password"
               {...register("confirmPassword")}
             />
-
+            <small className="text-danger mb-3">
+              {errors.confirmPassword?.message}
+            </small>
             <MDBBtn
               className="mb-4 w-100 gradient-custom-4 text-black"
               size="lg"
@@ -90,7 +112,6 @@ const Signup = () => {
               ثبت نام
             </MDBBtn>
           </Form>
-          
         </MDBCardBody>
       </MDBCard>
     </MDBContainer>

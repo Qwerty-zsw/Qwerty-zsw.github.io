@@ -22,18 +22,23 @@ const LoginPage = () => {
   const schema = yup.object().shape({
     EmailorUser: yup
       .string()
+      .required("ایمیل یا نام کاربری خود را وارد کنید!")
       .matches(
-        /^(?:(?!.*\s)[a-zA-Z0-9]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+|[a-zA-Z0-9]+)$/
-      )
-      .required(),
-    password: yup.string().min(6).max(20).required(),
+        /^(?:(?!.*\s)[a-zA-Z0-9]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+|[a-zA-Z0-9]+)$/,
+        "ایمیل یا نام کاربری اشتباه است!"
+      ),
+    password: yup
+      .string()
+      .required("لطفا رمز عبور خود را وارد کنید!")
+      .min(6, "تعداد حروف کمتر از 6 کلمه است!")
+      .max(20, "تعداد حروف بیشتر از 20 کلمه است!"),
   });
 
   const OnSubmit = (data) => {
     console.log(data);
   };
 
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, formState: {errors} } = useForm({
     resolver: yupResolver(schema),
   });
 
@@ -41,7 +46,7 @@ const LoginPage = () => {
     <>
       <MDBContainer
         fluid
-        className="d-flex justify-content-center align-items-center w-100 h-100 bg-image"
+        className="w-100 h-100 d-flex justify-content-center align-items-center bg-image"
         style={{ backgroundImage: `url("../../public/csG.jpg")` }}
       >
         <MDBRow>
@@ -50,7 +55,7 @@ const LoginPage = () => {
               className="text-white my-5 mx-auto bg-blur"
               style={{ borderRadius: "3rem", maxWidth: "400px" }}
             >
-              <MDBCardBody className="p-5 d-flex flex-column align-items-center mx-auto w-100">
+              <MDBCardBody className="w-100 p-5 d-flex flex-column align-items-center mx-auto">
                 <h2 className="fw-bold mb-2 text-uppercase">ورود</h2>
                 <p className="text-white-50 mb-5 mt-2">
                   لطفا نام کاربری و رمزعبور خود را وارد کنید
@@ -61,7 +66,7 @@ const LoginPage = () => {
                   className="w-100 text-center"
                 >
                   <MDBInput
-                    wrapperClass="mb-4 w-100"
+                    wrapperClass="mb-1 w-100"
                     labelClass="text-white"
                     label="نام کاربری یا ایمیل"
                     id="formControlLg"
@@ -69,18 +74,19 @@ const LoginPage = () => {
                     size="lg"
                     {...register("EmailorUser")}
                   />
+                  <small className="text-danger">{errors.EmailorUser?.message}</small>
                   <MDBInput
-                    wrapperClass="mb-4 w-100"
+                    wrapperClass="mt-3 w-100"
                     labelClass="text-white"
                     label="رمز عبور"
                     id="formControlLg"
                     size="lg"
                     {...register("password")}
                   />
-
+                  <small className="text-danger">{errors.password?.message}</small>
                   <MDBBtn
                     outline
-                    className="mx-2 px-5 rounded-5"
+                    className="mx-2 mt-3 px-5 rounded-5"
                     color="light"
                     rippleColor="white"
                     size="lg"
