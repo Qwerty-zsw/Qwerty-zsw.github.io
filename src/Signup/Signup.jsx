@@ -8,11 +8,10 @@ import {
 } from "mdb-react-ui-kit";
 import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import {yupResolver} from "@hookform/resolvers/yup"
+import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 const Signup = () => {
-
   const schema = yup.object().shape({
     user: yup.string().min(4).max(16).required(),
     email: yup.string().email().required(),
@@ -91,7 +90,7 @@ const Signup = () => {
               ثبت نام
             </MDBBtn>
           </Form>
-
+          
         </MDBCardBody>
       </MDBCard>
     </MDBContainer>

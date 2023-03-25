@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "mdb-react-ui-kit/dist/css/mdb.rtl.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./LoginPage.css";
@@ -14,38 +13,29 @@ import {
   MDBIcon,
 } from "mdb-react-ui-kit";
 import { Link } from "react-router-dom";
-
-const userReg = /^[a-zA-Z0-9_-]{3,16}$/;
-const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const passReg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+import { useForm } from "react-hook-form";
+import { Form } from "react-bootstrap";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 const LoginPage = () => {
-  const [showPassword, setShowPassword] = useState(false);
+  const schema = yup.object().shape({
+    EmailorUser: yup
+      .string()
+      .matches(
+        /^(?:(?!.*\s)[a-zA-Z0-9]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+|[a-zA-Z0-9]+)$/
+      )
+      .required(),
+    password: yup.string().min(6).max(20).required(),
+  });
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
+  const OnSubmit = (data) => {
+    console.log(data);
   };
 
-  const [InpVal, setInpVal] = useState("");
-  const [InpValpass, setInpValpass] = useState("");
-  const [regErr, setregErr] = useState(true);
-  const [borderColor, setborderColor] = useState(true);
-
-  const clickHandler = (e) => {
-    e.preventDefault();
-
-    const userCheck = userReg.test(InpVal);
-    const emailCheck = emailReg.test(InpVal);
-    const passCheck = passReg.test(InpValpass);
-
-    if ((passCheck && emailCheck) || (userCheck && passCheck)) {
-      setregErr(true);
-      setborderColor(true);
-    } else {
-      setregErr(false);
-      setborderColor(false);
-    }
-  };
+  const { register, handleSubmit } = useForm({
+    resolver: yupResolver(schema),
+  });
 
   return (
     <>
@@ -65,73 +55,44 @@ const LoginPage = () => {
                 <p className="text-white-50 mb-5 mt-2">
                   لطفا نام کاربری و رمزعبور خود را وارد کنید
                 </p>
-                <MDBInput
-                  wrapperClass={`mb-4 w-100 ${
-                    borderColor ? "border-transparent" : "zzz"
-                  }`}
-                  labelClass="text-white"
-                  label="نام کاربری یا ایمیل"
-                  id="formControlLg"
-                  type="email"
-                  size="lg"
-                  value={InpVal}
-                  onChange={(e) => setInpVal(e.target.value)}
-                />
-                <MDBInput
-                  wrapperClass={`mb-4 w-100 ${
-                    borderColor ? "border-transparent" : "zzz"
-                  }`}
-                  labelClass="text-white"
-                  label="رمز عبور"
-                  id="formControlLg"
-                  value={InpValpass}
-                  onChange={(e) => setInpValpass(e.target.value)}
-                  type={showPassword ? "text" : "password"}
-                  size="lg"
-                  icon={
-                    <MDBIcon
-                      icon={showPassword ? "eye-slash" : "eye"}
-                      className="clickable"
-                      onClick={togglePasswordVisibility}
-                    />
-                  }
-                />
-                <small
-                  className={`w-100 text-danger mb-3 ${
-                    regErr ? "d-none" : "d-block"
-                  }`}
-                >
-                  ایمیل/نام کاربری یا پسورد اشتباه است
-                </small>
-                <div className="form-check mb-4 d-flex justify-content-start w-100">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    id="showPasswordCheckbox"
-                    checked={showPassword}
-                    onChange={togglePasswordVisibility}
-                  />
-                  <label
-                    className="form-check-label text-white fs-9"
-                    htmlFor="showPasswordCheckbox"
-                  >
-                    نمایش گذرواژه
-                  </label>
-                </div>
 
-                <Link to={"/ریست-پسورد"} className="small mb-3 pb-lg-2">
+                <Form
+                  onSubmit={handleSubmit(OnSubmit)}
+                  className="w-100 text-center"
+                >
+                  <MDBInput
+                    wrapperClass="mb-4 w-100"
+                    labelClass="text-white"
+                    label="نام کاربری یا ایمیل"
+                    id="formControlLg"
+                    type="text"
+                    size="lg"
+                    {...register("EmailorUser")}
+                  />
+                  <MDBInput
+                    wrapperClass="mb-4 w-100"
+                    labelClass="text-white"
+                    label="رمز عبور"
+                    id="formControlLg"
+                    size="lg"
+                    {...register("password")}
+                  />
+
+                  <MDBBtn
+                    outline
+                    className="mx-2 px-5 rounded-5"
+                    color="light"
+                    rippleColor="white"
+                    size="lg"
+                  >
+                    ورود
+                  </MDBBtn>
+                </Form>
+
+                <Link to={"/ریست-پسورد"} className="small mt-3 pb-lg-2">
                   <a href="#">پسورد خود را فراموش کرده اید؟</a>
                 </Link>
-                <MDBBtn
-                  outline
-                  className="mx-2 px-5 rounded-5"
-                  color="light"
-                  rippleColor="white"
-                  size="lg"
-                  onClick={clickHandler}
-                >
-                  ورود
-                </MDBBtn>
+
                 <div className="d-flex flex-row mt-3 mb-5">
                   <MDBBtn
                     tag="a"
