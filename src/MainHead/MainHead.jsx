@@ -38,7 +38,7 @@ const MainHead = () => {
                 className="d-flex rounded-4 py-2 ps-5"
                 aria-label="Search"
               />
-              <IoSearchCircleOutline className="fs-2 icon text-black" />
+              <IoSearchCircleOutline className="fs-2 icon search-icon text-black" />
             </Form>
             <Nav
               className="my-2 my-lg-0"

@@ -23,3 +23,11 @@
 .form-control{
     padding-left: 1rem !important;
 }
+
+.search-icon{
+    cursor: pointer;
+}
+
+.search-icon:hover{
+    color: rgb(255, 0, 0) !important;
+}
