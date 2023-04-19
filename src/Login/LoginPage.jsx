@@ -27,18 +27,18 @@ const LoginPage = () => {
         /^(?:(?!.*\s)[a-zA-Z0-9]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+|[a-zA-Z0-9]+)$/,
         "ایمیل یا نام کاربری اشتباه است!"
       ),
-    password: yup
-      .string()
-      .required("لطفا رمز عبور خود را وارد کنید!")
-      .min(6, "تعداد حروف کمتر از 6 کلمه است!")
-      .max(20, "تعداد حروف بیشتر از 20 کلمه است!"),
+    password: yup.string().required("لطفا رمز عبور خود را وارد کنید!"),
   });
 
   const OnSubmit = (data) => {
     console.log(data);
   };
 
-  const { register, handleSubmit, formState: {errors} } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     resolver: yupResolver(schema),
   });
 
@@ -74,7 +74,11 @@ const LoginPage = () => {
                     size="lg"
                     {...register("EmailorUser")}
                   />
-                  <small className="text-danger">{errors.EmailorUser?.message}</small>
+                  <small className="text-danger">
+                    <section className="w-100 d-flex mt-1 text-danger">
+                      {errors.EmailorUser?.message}
+                    </section>
+                  </small>
                   <MDBInput
                     wrapperClass="mt-3 w-100"
                     labelClass="text-white"
@@ -83,7 +87,11 @@ const LoginPage = () => {
                     size="lg"
                     {...register("password")}
                   />
-                  <small className="text-danger">{errors.password?.message}</small>
+                  <small className="w-100">
+                    <section className="w-100 d-flex mt-1 text-danger">
+                      {errors.password?.message}
+                    </section>
+                  </small>
                   <MDBBtn
                     outline
                     className="mx-2 mt-3 px-5 rounded-5"
