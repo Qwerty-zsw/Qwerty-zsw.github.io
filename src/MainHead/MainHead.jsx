@@ -20,10 +20,10 @@ const MainHead = () => {
 
   return (
     <>
-      <Navbar bg="transparent" expand="sm">
-        <Container fluid className="text-white">
+      <Navbar className="rm-shadow" expand="sm">
+        <Container fluid>
           <Link to={"/"}>
-            <Navbar.Brand className="cusLog2 text-white fw-bold" href="#">
+            <Navbar.Brand className="cusLog2 text-white fw-bold">
               MasterGame
             </Navbar.Brand>
           </Link>

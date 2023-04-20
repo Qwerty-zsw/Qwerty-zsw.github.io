@@ -17,6 +17,10 @@ li {
   width: 85%;
 }
 
+.w-22{
+  width: 22%;
+}
+
 @media only screen and (max-width: 992px) {
   .mobile-read {
     width: 100%;

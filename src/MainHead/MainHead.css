@@ -31,3 +31,7 @@
 .search-icon:hover{
     color: rgb(255, 0, 0) !important;
 }
+
+.rm-shadow{
+    box-shadow: none !important;
+}
