@@ -25,9 +25,9 @@ const Main = ({
             <MainHead />
           </div>
           <div className="w-100 d-flex flex-column fw-bold text-center text-white">
-            <section className={`w-100 ${paraFs}`}>{ParaText}</section>
+            <section className={`w-100 mobileLarge-fs ${paraFs}`}>{ParaText}</section>
             <div className="w-100 d-flex justify-content-center">
-              <small className={`${paraSmallFont} mt-3 mb-2`}>
+              <small className={`${paraSmallFont} mobileSmall-fs mt-3 mb-2`}>
                 {paraSmallText}
               </small>
             </div>

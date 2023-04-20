@@ -7,28 +7,36 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { IoSearchCircleOutline } from "react-icons/io5";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
-import { MdMenu } from 'react-icons/md';
-import { BiMenuAltLeft } from 'react-icons/bi';
+import { MdMenu } from "react-icons/md";
+import { BiMenuAltLeft } from "react-icons/bi";
 import { useState } from "react";
 
 const MainHead = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const clichandler = ()=>{
-    setIsOpen(!isOpen)
-  }
+  const clichandler = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <>
-      <Navbar className="rm-shadow" expand="sm">
+      <Navbar className="rm-shadow py-0 my-0" expand="sm">
         <Container fluid>
           <Link to={"/"}>
-            <Navbar.Brand className="cusLog2 text-white fw-bold">
-              MasterGame
+          <Navbar.Brand className="iconSmallsize" style={{ width:"55px" }}>
+              <img
+                className="w-100 h-100"
+                src="../../public/Main.png"
+                alt="Master Game"
+              />
             </Navbar.Brand>
           </Link>
-          <Navbar.Toggle className="text-light fs-1" aria-controls="navbarScroll" onClick={clichandler}>
-          {isOpen ? <BiMenuAltLeft /> : <MdMenu />}
+          <Navbar.Toggle
+            className="text-light fs-1"
+            aria-controls="navbarScroll"
+            onClick={clichandler}
+          >
+            {isOpen ? <BiMenuAltLeft /> : <MdMenu />}
           </Navbar.Toggle>
           <Navbar.Collapse id="navbarScroll">
             <Form className="d-flex position-relative mx-auto">

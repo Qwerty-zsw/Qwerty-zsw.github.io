@@ -66,7 +66,7 @@ const LoginPage = () => {
                   className="w-100 text-center"
                 >
                   <MDBInput
-                    wrapperClass="mb-1 w-100"
+                    wrapperClass="mb-1 w-100 qqqq"
                     labelClass="text-white"
                     label="نام کاربری یا ایمیل"
                     id="formControlLg"

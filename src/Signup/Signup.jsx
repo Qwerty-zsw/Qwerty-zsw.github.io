@@ -27,8 +27,8 @@ const Signup = () => {
       .required("لطفا رمز عبور خود را وارد کنید!")
       .min(6, "تعداد حروف کمتر از 6 کلمه است!")
       .max(20, "تعداد حروف بیشتر از 20 کلمه است!")
-      .matches(/^(?=.*[A-Z])/, 'لطفا یک حرف بزرگ در پسورد خود باشد!')
-      .matches(/^(?=.*[0-9])/, 'لطفا در پسورد خود عدد اضافه کنید!'),
+      .matches(/^(?=.*[A-Z])/, "لطفا یک حرف بزرگ در پسورد خود باشد!")
+      .matches(/^(?=.*[0-9])/, "لطفا در پسورد خود عدد اضافه کنید!"),
     confirmPassword: yup
       .string()
       .oneOf([yup.ref("password"), null], "پسورد مطابقت ندارد!")
@@ -57,7 +57,7 @@ const Signup = () => {
     >
       <MDBCard
         className="bg-blur py-4 px-1 text-muted"
-        style={{ maxWidth: "600px", borderRadius: "3rem" }}
+        style={{minWidth:"390px", maxWidth: "600px", borderRadius: "3rem" }}
       >
         <MDBCardBody className="px-5">
           <h2 className="text-uppercase text-center mb-5">ایجاد حساب کاربری</h2>
