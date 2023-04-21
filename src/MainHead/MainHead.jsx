@@ -14,16 +14,16 @@ import { useState } from "react";
 const MainHead = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const clichandler = () => {
+  const clickHandler = () => {
     setIsOpen(!isOpen);
   };
 
   return (
     <>
-      <Navbar className="rm-shadow py-0 my-0" expand="sm">
+      <Navbar className="rm-shadow py-0 my-0" expand="md">
         <Container fluid>
           <Link to={"/"}>
-          <Navbar.Brand className="iconSmallsize" style={{ width:"55px" }}>
+            <Navbar.Brand className="iconSmallsize" style={{ width: "55px" }}>
               <img
                 className="w-100 h-100"
                 src="../../public/Main.png"
@@ -34,12 +34,12 @@ const MainHead = () => {
           <Navbar.Toggle
             className="text-light fs-1"
             aria-controls="navbarScroll"
-            onClick={clichandler}
+            onClick={clickHandler}
           >
             {isOpen ? <BiMenuAltLeft /> : <MdMenu />}
           </Navbar.Toggle>
           <Navbar.Collapse id="navbarScroll">
-            <Form className="d-flex position-relative mx-auto">
+            <Form style={{minWidth:"16rem"}} className="position-relative me-4">
               <Form.Control
                 type="search"
                 placeholder="دنبال چه چیزی هستید؟"
@@ -49,8 +49,8 @@ const MainHead = () => {
               <IoSearchCircleOutline className="fs-2 icon search-icon text-black" />
             </Form>
             <Nav
-              className="my-2 my-lg-0"
-              style={{ maxHeight: "300px" }}
+              className="my-2 my-lg-0 w-100 justify-content-end"
+              style={{ maxHeight: "900px" }}
               navbarScroll
             >
               <NavDropdown
