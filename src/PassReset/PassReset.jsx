@@ -43,7 +43,7 @@ const PassReset = () => {
         fluid
         className="w-100 h-100 d-flex justify-content-center align-items-center bg-image"
         style={{
-          backgroundImage: `url("https://wallpaperaccess.com/full/5492411.jpg")`,
+          backgroundImage: `url("../../RestPass.jpg")`,
         }}
       >
         <MDBRow>
