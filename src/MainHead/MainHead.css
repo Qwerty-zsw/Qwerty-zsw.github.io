@@ -35,3 +35,14 @@
 .rm-shadow{
     box-shadow: none !important;
 }
+
+.fixedCenter{
+    margin-right: 7rem !important;
+}
+
+@media only screen and (max-width: 767px) {
+    .fixedCenter {
+      width: 100% !important;
+      margin: 0 !important;
+    }
+  }

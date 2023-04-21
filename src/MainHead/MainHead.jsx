@@ -8,7 +8,7 @@ import { IoSearchCircleOutline } from "react-icons/io5";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
 import { MdMenu } from "react-icons/md";
-import { BiMenuAltLeft } from "react-icons/bi";
+import { BiMenuAltRight } from "react-icons/bi";
 import { useState } from "react";
 
 const MainHead = () => {
@@ -22,8 +22,15 @@ const MainHead = () => {
     <>
       <Navbar className="rm-shadow py-0 my-0" expand="md">
         <Container fluid>
+          <Navbar.Toggle
+            className="text-light fs-1"
+            aria-controls="navbarScroll"
+            onClick={clickHandler}
+          >
+            {isOpen ? <BiMenuAltRight /> : <MdMenu />}
+          </Navbar.Toggle>
           <Link to={"/"}>
-            <Navbar.Brand className="iconSmallsize" style={{ width: "55px" }}>
+            <Navbar.Brand style={{ width: "55px" }}>
               <img
                 className="w-100 h-100"
                 src="../../public/Main.png"
@@ -31,15 +38,10 @@ const MainHead = () => {
               />
             </Navbar.Brand>
           </Link>
-          <Navbar.Toggle
-            className="text-light fs-1"
-            aria-controls="navbarScroll"
-            onClick={clickHandler}
-          >
-            {isOpen ? <BiMenuAltLeft /> : <MdMenu />}
-          </Navbar.Toggle>
-          <Navbar.Collapse id="navbarScroll">
-            <Form style={{minWidth:"16rem"}} className="position-relative me-4">
+          <Navbar.Collapse className={isOpen ? "text-bg-secondary rounded-5" : ""} id="navbarScroll">
+          
+            <div className="w-100 d-flex justify-content-center">
+            <Form className={"position-relative fixedCenter"}>
               <Form.Control
                 type="search"
                 placeholder="دنبال چه چیزی هستید؟"
@@ -48,9 +50,9 @@ const MainHead = () => {
               />
               <IoSearchCircleOutline className="fs-2 icon search-icon text-black" />
             </Form>
+            </div>
             <Nav
-              className="my-2 my-lg-0 w-100 justify-content-end"
-              style={{ maxHeight: "900px" }}
+              className="my-2 my-lg-0"
               navbarScroll
             >
               <NavDropdown
