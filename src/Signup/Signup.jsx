@@ -56,11 +56,12 @@ const Signup = () => {
       }}
     >
       <MDBCard
-        className="bg-blur py-4 px-1 text-muted"
-        style={{minWidth:"390px", maxWidth: "600px", borderRadius: "3rem" }}
+        className="bg-blur py-4 px-3 text-muted"
+        style={{minWidth:"340px", maxWidth: "600px", borderRadius: "3rem" }}
       >
-        <MDBCardBody className="px-5">
-          <h2 className="text-uppercase text-center mb-5">ایجاد حساب کاربری</h2>
+        <MDBCardBody>
+          <h2 className="text-uppercase text-center lh-1">ایجاد حساب کاربری</h2>
+          <small className="w-100 d-flex justify-content-center mb-5">به جامعه پرو پلیرا بپیوند!</small>
           <Form
             className="w-100 d-flex flex-column justify-content-center"
             onSubmit={handleSubmit(OnSubmit)}
@@ -104,7 +105,7 @@ const Signup = () => {
               type="password"
               {...register("confirmPassword")}
             />
-            <small className="text-danger mb-3">
+            <small className="text-danger mb-4">
               {errors.confirmPassword?.message}
             </small>
             <MDBBtn
