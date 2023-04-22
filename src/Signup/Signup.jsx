@@ -60,32 +60,32 @@ const Signup = () => {
         style={{minWidth:"340px", maxWidth: "600px", borderRadius: "3rem" }}
       >
         <MDBCardBody>
-          <h2 className="text-uppercase text-center lh-1">ایجاد حساب کاربری</h2>
-          <small className="w-100 d-flex justify-content-center mb-5">به جامعه پرو پلیرا بپیوند!</small>
+          <h2 className="text-uppercase text-center lh-1 text-sizeCus">ایجاد حساب کاربری</h2>
+          <small className="w-100 d-flex justify-content-center mb-5 smallCus">به جامعه پرو پلیرا بپیوند!</small>
           <Form
             className="w-100 d-flex flex-column justify-content-center"
             onSubmit={handleSubmit(OnSubmit)}
           >
             <MDBInput
-              wrapperClass="mb-1 w-100"
+              wrapperClass="mb-1 w-100 TextInp"
               label="نام کاربری"
               size="lg"
               id="form1"
               type="text"
               {...register("user")}
             />
-            <small className="text-danger mb-3">{errors.user?.message}</small>
+            <small className="text-danger mb-3 TextInp">{errors.user?.message}</small>
             <MDBInput
-              wrapperClass="mb-1 w-100"
+              wrapperClass="mb-1 w-100 TextInp"
               label="ایمیل"
               size="lg"
               id="form2"
               type="email"
               {...register("email")}
             />
-            <small className="text-danger mb-3">{errors.email?.message}</small>
+            <small className="text-danger mb-3 TextInp">{errors.email?.message}</small>
             <MDBInput
-              wrapperClass="mb-1 w-100"
+              wrapperClass="mb-1 w-100 TextInp"
               labelClass="text-white"
               label="رمز عبور"
               id="formControlLg"
@@ -93,11 +93,11 @@ const Signup = () => {
               type="password"
               {...register("password")}
             />
-            <small className="text-danger mb-3">
+            <small className="text-danger mb-3 TextInp">
               {errors.password?.message}
             </small>
             <MDBInput
-              wrapperClass="mb-1 w-100"
+              wrapperClass="mb-1 w-100 TextInp"
               labelClass="text-white"
               label="تکرار رمز عبور"
               id="formControlLg"
@@ -105,11 +105,11 @@ const Signup = () => {
               type="password"
               {...register("confirmPassword")}
             />
-            <small className="text-danger mb-4">
+            <small className="text-danger mb-4 TextInp">
               {errors.confirmPassword?.message}
             </small>
             <MDBBtn
-              className="mb-4 w-100 gradient-custom-4 text-black"
+              className="mb-4 w-100 gradient-custom-4 text-black TextInp"
               size="lg"
             >
               ثبت نام

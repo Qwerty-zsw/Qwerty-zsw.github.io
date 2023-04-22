@@ -57,7 +57,7 @@ const LoginPage = () => {
             >
               <MDBCardBody className="w-100 p-5 d-flex flex-column align-items-center mx-auto">
                 <h2 className="fw-bold mb-2 text-uppercase">ورود</h2>
-                <p className="text-white-50 mb-5 mt-2">
+                <p className="text-white-50 mb-5 mt-2 smallCus">
                   لطفا نام کاربری و رمزعبور خود را وارد کنید
                 </p>
 
@@ -67,34 +67,34 @@ const LoginPage = () => {
                 >
                   <MDBInput
                     wrapperClass="mb-1 w-100 qqqq"
-                    labelClass="text-white"
+                    labelClass="text-white TextInp"
                     label="نام کاربری یا ایمیل"
                     id="formControlLg"
                     type="text"
                     size="lg"
                     {...register("EmailorUser")}
                   />
-                  <small className="text-danger">
+                  <small className="text-danger TextInp">
                     <section className="w-100 d-flex mt-1 text-danger">
                       {errors.EmailorUser?.message}
                     </section>
                   </small>
                   <MDBInput
-                    wrapperClass="mt-3 w-100"
+                    wrapperClass="mt-3 w-100 TextInp"
                     labelClass="text-white"
                     label="رمز عبور"
                     id="formControlLg"
                     size="lg"
                     {...register("password")}
                   />
-                  <small className="w-100">
+                  <small className="w-100 TextInp">
                     <section className="w-100 d-flex mt-1 text-danger">
                       {errors.password?.message}
                     </section>
                   </small>
                   <MDBBtn
                     outline
-                    className="mx-2 mt-3 px-5 rounded-5"
+                    className="mx-2 mt-3 px-5 rounded-5 TextInp"
                     color="light"
                     rippleColor="white"
                     size="lg"
