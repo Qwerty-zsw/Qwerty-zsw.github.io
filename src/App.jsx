@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./HomePage";
 import LoginPage from "./Login/LoginPage";
 import NotFound from "./NotFound";
@@ -19,7 +19,7 @@ const App = () => {
           <Route path="ریست-پسورد" element={<PassReset />}/>
           <Route path="کد-تایید" element={<ConfirmCode />} />
         </Route>
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<Navigate to={"/"} />} />
       </Routes>
     </div>
   );
