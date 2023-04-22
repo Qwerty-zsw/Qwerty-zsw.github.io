@@ -13,9 +13,14 @@ import { useState } from "react";
 
 const MainHead = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [Max, setMax] = useState(false);
 
   const clickHandler = () => {
     setIsOpen(!isOpen);
+  };
+  
+  const maxHandler = () => {
+    setMax(!Max);
   };
 
   return (
@@ -38,25 +43,26 @@ const MainHead = () => {
               />
             </Navbar.Brand>
           </Link>
-          <Navbar.Collapse className={isOpen ? "text-bg-secondary rounded-5" : ""} id="navbarScroll">
+          <Navbar.Collapse className="body-collapse" id="navbarScroll">
           
             <div className="w-100 d-flex justify-content-center">
             <Form className={"position-relative fixedCenter"}>
               <Form.Control
                 type="search"
                 placeholder="دنبال چه چیزی هستید؟"
-                className="d-flex rounded-4 py-2 ps-5"
+                className="rounded-5 py-2 ps-5"
                 aria-label="Search"
               />
               <IoSearchCircleOutline className="fs-2 icon search-icon text-black" />
             </Form>
             </div>
             <Nav
-              className="my-2 my-lg-0"
+              className={`my-2 my-lg-0 position-relative cusMax ${Max ? "cusOpen" : ""}`}
               navbarScroll
             >
               <NavDropdown
-                className="fw-bold"
+                onClick={maxHandler}
+                className="fw-bold text-center"
                 title="آموزش ها"
                 id="navbarScrollingDropdown"
               >
@@ -71,7 +77,7 @@ const MainHead = () => {
                 </NavDropdown.Item>
               </NavDropdown>
               <LinkContainer to="/ورود">
-                <Nav.Link className="bg-white text-black fw-bold cusLog">
+                <Nav.Link className="login100 bg-white text-black fw-bold cusLog">
                   ورود
                 </Nav.Link>
               </LinkContainer>

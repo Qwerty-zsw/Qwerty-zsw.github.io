@@ -1,48 +1,71 @@
-.icon{
-    position: absolute;
-    transition: .3s;
-    top:50%;
-    right:2px;
-    transform: translateY(-50%);
+.icon {
+  position: absolute;
+  transition: 0.3s;
+  top: 50%;
+  right: 2px;
+  transform: translateY(-50%);
 }
 
-.dropdown-toggle{
-    color: white !important;
+.dropdown-toggle {
+  color: white !important;
 }
 
-.cusLog{
-    border: 2px solid white !important;
+.cusLog {
+  border: 2px solid white !important;
 }
 
-.cusLog:hover{
-    background-color: transparent !important;
-    color: white !important;
-    border: 2px solid white !important;
+.cusLog:hover {
+  background-color: transparent !important;
+  color: white !important;
+  border: 2px solid white !important;
 }
 
-.form-control{
-    padding-left: 1rem !important;
+.form-control {
+  padding-left: 1rem !important;
 }
 
-.search-icon{
-    cursor: pointer;
+.search-icon {
+  cursor: pointer;
 }
 
-.search-icon:hover{
-    color: rgb(255, 0, 0) !important;
+.search-icon:hover {
+  color: rgb(255, 0, 0) !important;
 }
 
-.rm-shadow{
-    box-shadow: none !important;
+.rm-shadow {
+  box-shadow: none !important;
 }
 
-.fixedCenter{
-    margin-right: 7rem !important;
+.fixedCenter {
+  margin-right: 7rem !important;
 }
 
 @media only screen and (max-width: 767px) {
-    .fixedCenter {
-      width: 100% !important;
-      margin: 0 !important;
-    }
+  .fixedCenter {
+    width: 100% !important;
+    margin: 0 !important;
   }
+  .body-collapse {
+    background-color: #6a757d;
+    border-top-left-radius: 0.375rem !important;
+    border-top-right-radius: 0.375rem !important;
+    border-bottom-left-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+  }
+  .cusMax {
+    min-height: 6rem !important;
+  }
+
+  .cusOpen {
+    min-height: 14rem !important;
+  }
+  .dropdown-menu,
+  .login100 {
+    min-width: 100% !important;
+    text-align: center !important;
+  }
+  .login100 {
+    position: absolute !important;
+    bottom: 0 !important;
+  }
+}
