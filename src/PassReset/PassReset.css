@@ -2,17 +2,19 @@
   .text-sizeCus {
     font-size: 20px !important;
   }
-}
-
-@media only screen and (max-width: 768px) {
   .TextInp {
     font-size: 12px !important;
   }
-
   .smallCus{
-    font-size: 13px;
+    font-size: 13px !important;
   }
   .smallTitle{
-    font-size: 17px;
+    font-size: 17px !important;
+  }
+  .readTitle{
+    font-size: 25px !important;
+  }
+  .readTitle2{
+    font-size: 19px !important;
   }
 }

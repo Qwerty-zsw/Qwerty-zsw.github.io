@@ -13,10 +13,10 @@ const Read = () => {
           <MainHead />
         </div>
         <div className="w-100">
-          <h1 className="fw-bold lh-base">
+          <h1 className="fw-bold lh-base px-2 readTitle">
             به بخش ریزترین نکات CSGO خوش آمدید
           </h1>
-          <h6 className="mt-3 text-center fw-bold mx-3 lh-base">
+          <h6 className="mt-3 text-center fw-bold px-4 lh-base TextInp">
             تو اینجا پرو پلیر ها میتونن نکاتی رو که خیلی کم بهش توجه میشه رو با
             بقیه اشتراک بزاره
           </h6>
@@ -43,7 +43,7 @@ const Read = () => {
             </ul>
           </div>
           <div className="w-75 main-text h-auto bg-cust rounded-9 me-4 text-white p-5">
-            <h3 className="lh-base">
+            <h3 className="lh-base readTitle2">
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
             </h3>
             <p className="mt-3">
@@ -70,7 +70,7 @@ const Read = () => {
               دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی
               اساسا مورد استفاده قرار گیرد.
             </p>
-            <h3 className="mt-4 lh-base">
+            <h3 className="mt-4 lh-base readTitle2">
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
             </h3>
             <p className="mt-3">
@@ -97,7 +97,7 @@ const Read = () => {
               دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی
               اساسا مورد استفاده قرار گیرد.
             </p>
-            <h3 className="mt-4 lh-base">
+            <h3 className="mt-4 lh-base readTitle2">
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
             </h3>
             <p className="mt-3">
@@ -124,7 +124,7 @@ const Read = () => {
               دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی
               اساسا مورد استفاده قرار گیرد.
             </p>
-            <h3 className="mt-4 lh-base">
+            <h3 className="mt-4 lh-base readTitle2">
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
             </h3>
             <p className="mt-3">
@@ -151,7 +151,7 @@ const Read = () => {
               دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی
               اساسا مورد استفاده قرار گیرد.
             </p>
-            <h3 className="mt-4 lh-base">
+            <h3 className="mt-4 lh-base readTitle2">
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
             </h3>
             <p className="mt-3">
