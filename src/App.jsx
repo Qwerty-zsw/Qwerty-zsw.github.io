@@ -1,7 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./HomePage";
 import LoginPage from "./Login/LoginPage";
-import NotFound from "./NotFound";
 import Signup from "./Signup/Signup";
 import Read from "./Read/Read";
 import PassReset from "./PassReset/PassReset";
