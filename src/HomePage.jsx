@@ -11,7 +11,7 @@ const HomePage = () => {
 
   useEffect(() => {
     axios
-      .get("http://192.168.1.100:3500/CardGames")
+      .get("http://localhost:3500/CardGames")
       .then((data) => {
         setGamesData(data.data);
       })
