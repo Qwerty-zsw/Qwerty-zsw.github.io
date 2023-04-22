@@ -1,15 +1,15 @@
-@media only screen and (max-width: 685px) {
-  .reset-size {
-    min-width: 500px !important;
+@media only screen and (max-width: 768px) {
+  .text-sizeCus {
+    font-size: 20px !important;
   }
 }
-@media only screen and (max-width: 605px) {
-  .reset-size {
-    min-width: 450px !important;
+
+@media only screen and (max-width: 768px) {
+  .TextInp {
+    font-size: 12px !important;
   }
-}
-@media only screen and (max-width: 480px) {
-  .reset-size {
-    min-width: 390px !important;
+
+  .smallCus{
+    font-size: 13px;
   }
 }
