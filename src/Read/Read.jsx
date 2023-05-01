@@ -2,6 +2,8 @@ import "./Read.css";
 import Footer from "../Footer/Footer";
 import MainHead from "../MainHead/MainHead";
 import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Read = () => {
   const [GamesData, setGamesData] = useState([]);
@@ -13,7 +15,7 @@ const Read = () => {
         setGamesData(data.data);
       })
       .catch((err) => console.log(err));
-  }, [pageID]);
+  }, []);
 
   const { pageID } = useParams();
 
@@ -21,7 +23,7 @@ const Read = () => {
     <>
       <div
         className="w-100 h-75 text-center text-white flex-column bg-image d-flex justify-content-center align-items-center"
-        style={{ backgroundImage: `url("../../public/ReadCS.jpg")` }}
+        style={{ backgroundImage: `url(${GamesData.readBgImage})` }}
       >
         <div className="position-absolute w-100 h-100 bg-cus"></div>
         <div className="w-100 h-100 position-absolute">

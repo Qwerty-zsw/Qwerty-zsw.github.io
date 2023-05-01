@@ -5,6 +5,7 @@ import Main from "./Main/Main";
 import MainCard from "./MainCard/MainCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const [GamesData, setGamesData] = useState([]);
@@ -41,11 +42,13 @@ const HomePage = () => {
                 lg={3}
                 key={`Gamedata-${item.id}`}
               >
-                <MainCard
-                  productImg={item.image}
-                  TitleName={item.title}
-                  Description={item.Desc}
-                />
+                <Link to={`${item.id}`}>
+                  <MainCard
+                    productImg={item.image}
+                    TitleName={item.title}
+                    Description={item.Desc}
+                  />
+                </Link>
               </Col>
             );
           })}
