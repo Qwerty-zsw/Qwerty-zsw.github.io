@@ -16,7 +16,7 @@ const HomePage = () => {
         setGamesData(data.data);
       })
       .catch((err) => console.log(err));
-  });
+  }, []);
 
   return (
     <div className="w-100 h-100">

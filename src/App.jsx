@@ -14,7 +14,7 @@ const App = () => {
           <Route index element={<HomePage />} />
           <Route path="ورود" element={<LoginPage />} />
           <Route path="ثبت-نام" element={<Signup />} />
-          <Route path="CSGO" element={<Read />} />
+          <Route path=":pageID" element={<Read />} />
           <Route path="ریست-پسورد" element={<PassReset />}/>
           <Route path="کد-تایید" element={<ConfirmCode />} />
         </Route>
