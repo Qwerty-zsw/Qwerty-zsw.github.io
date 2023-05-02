@@ -13,8 +13,8 @@ const HomePage = () => {
   useEffect(() => {
     axios
       .get("http://localhost:3500/CardGames")
-      .then((data) => {
-        setGamesData(data.data);
+      .then((res) => {
+        setGamesData(res.data);
       })
       .catch((err) => console.log(err));
   }, []);

@@ -7,6 +7,7 @@ import axios from "axios";
 
 const Read = () => {
   const [GamesData, setGamesData] = useState([]);
+  const { pageID } = useParams();
 
   useEffect(() => {
     axios
@@ -16,8 +17,6 @@ const Read = () => {
       })
       .catch((err) => console.log(err));
   }, []);
-
-  const { pageID } = useParams();
 
   return (
     <>
@@ -30,10 +29,10 @@ const Read = () => {
           <MainHead />
         </div>
         <div className="w-100">
-          <h1 className="fw-bold lh-base px-2 readTitle">
+          <h1 className="fw-bold txtShadow lh-base px-2 readTitle">
             {GamesData.readBgTitle}
           </h1>
-          <h6 className="mt-3 text-center fw-bold px-4 lh-base TextInp">
+          <h6 className="mt-3 txtShadow text-center fw-bold px-4 lh-base TextInp">
             {GamesData.readUnderTitle}
           </h6>
         </div>

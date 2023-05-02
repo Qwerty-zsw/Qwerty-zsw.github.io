@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Btnz from "../Button/Btn";
 import MainHead from "../MainHead/MainHead";
 import "./Main.css";
@@ -25,15 +26,21 @@ const Main = ({
             <MainHead />
           </div>
           <div className="w-100 d-flex flex-column fw-bold text-center text-white">
-            <section className={`w-100 mobileLarge-fs ${paraFs}`}>{ParaText}</section>
+            <section className={`w-100 mobileLarge-fs ${paraFs}`}>
+              {ParaText}
+            </section>
             <div className="w-100 d-flex justify-content-center">
               <small className={`${paraSmallFont} mobileSmall-fs mt-3 mb-2`}>
                 {paraSmallText}
               </small>
             </div>
             <div className="w-100 d-flex justify-content-center mt-4">
-              <Btnz BtnText={BtnText} BtnSecClassName={BtnClassMain} />
-              <Btnz BtnSecClassName={BtnSecClassName} BtnText={BtnTextSec} />
+              <Link to={"3"}>
+                <Btnz BtnText={BtnText} BtnSecClassName={BtnClassMain} />
+              </Link>
+              <Link to={"1"}>
+                <Btnz BtnSecClassName={BtnSecClassName} BtnText={BtnTextSec} />
+              </Link>
             </div>
           </div>
         </div>
