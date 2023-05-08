@@ -29,7 +29,7 @@
 }
 
 .search-icon:hover {
-  color: rgb(255, 0, 0) !important;
+  color: rgb(146, 146, 146) !important;
 }
 
 .rm-shadow {
@@ -68,4 +68,8 @@
     position: absolute !important;
     bottom: 0 !important;
   }
+}
+
+.ctm-h{
+  height: 7rem;
 }
