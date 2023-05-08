@@ -6,5 +6,8 @@ const PrivRoute = ({ children }) => {
 
   return <div>{isUserLogin ? { children } : <Navigate to={"/ورود"} />}</div>;
 };
+// you have to put this component to elements component in "routes.jsx"
+// => e: this> {children} <this
+// children = other component details
 
 export default PrivRoute;
