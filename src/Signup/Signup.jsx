@@ -10,6 +10,7 @@ import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import axios from "axios";
 
 const Signup = () => {
   const schema = yup.object().shape({
@@ -44,7 +45,17 @@ const Signup = () => {
   });
 
   const OnSubmit = (data) => {
-    console.log(data);
+    axios
+      .post(
+        "https://schh-413d6-default-rtdb.europe-west1.firebasedatabase.app/users.json",
+        data
+      )
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -57,11 +68,15 @@ const Signup = () => {
     >
       <MDBCard
         className="bg-blur py-4 px-3 text-muted"
-        style={{minWidth:"340px", maxWidth: "600px", borderRadius: "3rem" }}
+        style={{ minWidth: "340px", maxWidth: "600px", borderRadius: "3rem" }}
       >
         <MDBCardBody>
-          <h2 className="text-uppercase text-center lh-1 text-sizeCus">ایجاد حساب کاربری</h2>
-          <small className="w-100 d-flex justify-content-center mb-5 smallCus">به جامعه پرو پلیرا بپیوند!</small>
+          <h2 className="text-uppercase text-center lh-1 text-sizeCus">
+            ایجاد حساب کاربری
+          </h2>
+          <small className="w-100 d-flex justify-content-center mb-5 smallCus">
+            به جامعه پرو پلیرا بپیوند!
+          </small>
           <Form
             className="w-100 d-flex flex-column justify-content-center"
             onSubmit={handleSubmit(OnSubmit)}
@@ -74,7 +89,9 @@ const Signup = () => {
               type="text"
               {...register("user")}
             />
-            <small className="text-danger mb-3 TextInp">{errors.user?.message}</small>
+            <small className="text-danger mb-3 TextInp">
+              {errors.user?.message}
+            </small>
             <MDBInput
               wrapperClass="mb-1 w-100 TextInp"
               label="ایمیل"
@@ -83,7 +100,9 @@ const Signup = () => {
               type="email"
               {...register("email")}
             />
-            <small className="text-danger mb-3 TextInp">{errors.email?.message}</small>
+            <small className="text-danger mb-3 TextInp">
+              {errors.email?.message}
+            </small>
             <MDBInput
               wrapperClass="mb-1 w-100 TextInp"
               labelClass="text-white"
