@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { LinkContainer } from "react-router-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { MdMenu } from "react-icons/md";
 import { BiMenuAltRight } from "react-icons/bi";
 import { useState } from "react";
@@ -15,7 +15,9 @@ import { showLogin } from "../util";
 const MainHead = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [Max, setMax] = useState(false);
+  const [isSearch, setIsSearch] = useState("");
   const isUserLogin = showLogin("Masoud");
+
 
   return (
     <>
@@ -28,7 +30,7 @@ const MainHead = () => {
           >
             {isOpen ? <BiMenuAltRight /> : <MdMenu />}
           </Navbar.Toggle>
-          <Link to={"/"}>
+          <NavLink to={"/"}>
             <Navbar.Brand style={{ width: "55px" }}>
               <img
                 className="w-100 h-100"
@@ -36,7 +38,7 @@ const MainHead = () => {
                 alt="Master Game"
               />
             </Navbar.Brand>
-          </Link>
+          </NavLink>
           <Navbar.Collapse className="body-collapse" id="navbarScroll">
             <div className="w-100 d-flex justify-content-center">
               <Form className={"position-relative fixedCenter"}>
@@ -45,6 +47,7 @@ const MainHead = () => {
                   placeholder="دنبال چه چیزی هستید؟"
                   className="rounded-5 py-2 ps-5"
                   aria-label="Search"
+                  onChange={(e) => setIsSearch(e.target.value)}
                 />
                 <IoSearchCircleOutline className="fs-2 icon search-icon text-black" />
               </Form>
