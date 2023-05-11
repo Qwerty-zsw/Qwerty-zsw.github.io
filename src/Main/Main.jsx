@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import Btnz from "../Button/Btn";
-import MainHead from "../MainHead/MainHead";
 import "./Main.css";
 
 const Main = ({
@@ -22,9 +21,6 @@ const Main = ({
       >
         <div className="position-absolute w-100 h-100 bg-cus"></div>
         <div className="w-100 h-100 d-flex position-absolute justify-content-center align-items-center">
-          <div className="w-100 top-0 position-absolute">
-            <MainHead />
-          </div>
           <div className="w-100 d-flex flex-column fw-bold text-center text-white">
             <section className={`w-100 mobileLarge-fs ${paraFs}`}>
               {ParaText}
