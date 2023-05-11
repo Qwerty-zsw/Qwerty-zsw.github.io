@@ -20,14 +20,14 @@ const Read = () => {
 
   return (
     <>
+    <div className="w-100 top-0 position-absolute z-10">
+        <MainHead />
+      </div>
       <div
         className="w-100 h-75 text-center text-white flex-column bg-image d-flex justify-content-center align-items-center"
         style={{ backgroundImage: `url(${GamesData.readBgImage})` }}
       >
         <div className="position-absolute w-100 h-100 bg-cus"></div>
-        <div className="w-100 h-100 position-absolute">
-          <MainHead />
-        </div>
         <div className="w-100">
           <h1 className="fw-bold txtShadow lh-base px-2 readTitle">
             {GamesData.readBgTitle}
