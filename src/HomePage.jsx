@@ -6,13 +6,14 @@ import MainCard from "./MainCard/MainCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import MainHead from "./MainHead/MainHead";
 
 const HomePage = () => {
   const [GamesData, setGamesData] = useState([]);
 
-  useEffect(() => {
+  useEffect( () => {
     axios
-      .get("http://localhost:3500/CardGames")
+      .get("https://schh-413d6-default-rtdb.europe-west1.firebasedatabase.app/CardGames.json")
       .then((res) => {
         setGamesData(res.data);
       })
@@ -21,6 +22,9 @@ const HomePage = () => {
 
   return (
     <div className="w-100 h-100">
+      <div className="w-100 top-0 position-absolute z-10">
+        <MainHead />
+      </div>
       <Main
         BtnSecClassName="TransBtn"
         paraFs="fs-60"
