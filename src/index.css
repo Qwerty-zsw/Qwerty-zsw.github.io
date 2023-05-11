@@ -21,3 +21,7 @@ a{
   font-family: "IrSans";
   src: url(../public/IranSans.ttf);
 }
+
+.z-10{
+  z-index: 10 !important;
+}
