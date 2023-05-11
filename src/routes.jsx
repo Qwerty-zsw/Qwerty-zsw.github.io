@@ -16,4 +16,4 @@ const routes = [
   { path: "/*", element: <NotFound /> },
 ];
 
-export default routes
+export default routes;
