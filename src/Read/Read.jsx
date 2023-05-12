@@ -11,12 +11,12 @@ const Read = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3500/CardGames/${pageID}`)
+      .get(`https://schh-413d6-default-rtdb.europe-west1.firebasedatabase.app/CardGames/${pageID}.json`)
       .then((data) => {
         setGamesData(data.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [pageID]);
 
   return (
     <>
