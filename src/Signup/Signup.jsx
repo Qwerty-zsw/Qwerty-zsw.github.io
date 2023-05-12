@@ -58,6 +58,7 @@ const Signup = () => {
         console.log(err);
       });
   };
+  
   return (
     <MDBContainer
       fluid
