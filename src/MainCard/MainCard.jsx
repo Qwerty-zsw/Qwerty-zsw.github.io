@@ -4,13 +4,13 @@ import Card from "react-bootstrap/Card";
 const MainCard = (props) => {
   return (
     <>
-      <Card className="bg-dark sdsd text-light rounded-custom max-h TextInp position-relative">
+      <Card className="bg-dark Heffect text-light rounded-custom max-h TextInp position-relative">
         <div className="overlay fs-5 text-black fw-bold d-flex justify-content-center align-items-center">
           ادامه مطلب...
         </div>
         <Card.Img
           variant="top rounded-custom rounded-bottom"
-          src={props.productImg}
+          src={(props.productImg)}
         />
 
         <Card.Body className="text-center">
