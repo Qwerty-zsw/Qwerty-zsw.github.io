@@ -12,6 +12,7 @@ import { useForm } from "react-hook-form";
 import { Form } from "react-bootstrap";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import ResetPassBG from "../../public/ResetPass.jpg";
 
 const PassReset = () => {
   const schema = yup.object().shape({
@@ -43,7 +44,7 @@ const PassReset = () => {
         fluid
         className="w-100 h-100 d-flex justify-content-center align-items-center bg-image"
         style={{
-          backgroundImage: `url("../../ResetPass.jpg")`,
+          backgroundImage: `url(${ResetPassBG})`,
         }}
       >
         <MDBRow className="w-100">
