@@ -1,6 +1,6 @@
+import "./Main.css";
 import { Link } from "react-router-dom";
 import Btnz from "../Button/Btn";
-import "./Main.css";
 
 const Main = ({
   bgImg,
@@ -31,10 +31,10 @@ const Main = ({
               </small>
             </div>
             <div className="w-100 d-flex justify-content-center mt-4">
-              <Link to={"3"}>
+              <Link to={"2"}>
                 <Btnz BtnText={BtnText} BtnSecClassName={BtnClassMain} />
               </Link>
-              <Link to={"1"}>
+              <Link to={"0"}>
                 <Btnz BtnSecClassName={BtnSecClassName} BtnText={BtnTextSec} />
               </Link>
             </div>
