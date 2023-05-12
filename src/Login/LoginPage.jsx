@@ -17,6 +17,7 @@ import { useForm } from "react-hook-form";
 import { Form } from "react-bootstrap";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import loginBG from "../../public/csG.jpg";
 
 const LoginPage = () => {
   const schema = yup.object().shape({
@@ -47,7 +48,7 @@ const LoginPage = () => {
       <MDBContainer
         fluid
         className="w-100 h-100 d-flex justify-content-center align-items-center bg-image"
-        style={{ backgroundImage: `url("../../public/csG.jpg")` }}
+        style={{ backgroundImage: `url(${loginBG})` }}
       >
         <MDBRow>
           <MDBCol col="12">

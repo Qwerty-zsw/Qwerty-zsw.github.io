@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
+import signupBG from "../../public/wzG.jpg";
 
 const Signup = () => {
   const schema = yup.object().shape({
@@ -57,13 +58,13 @@ const Signup = () => {
         console.log(err);
       });
   };
-
+  console.log(true);
   return (
     <MDBContainer
       fluid
       className="w-100 h-100 d-flex justify-content-center align-items-center bg-image"
       style={{
-        backgroundImage: "url(../../public/wzG.jpg)",
+        backgroundImage: `url(${signupBG})`,
       }}
     >
       <MDBCard

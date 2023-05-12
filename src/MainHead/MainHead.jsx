@@ -11,6 +11,7 @@ import { useState } from "react";
 import { IoSearchCircleOutline } from "react-icons/io5";
 import Form from "react-bootstrap/Form";
 import { showLogin } from "../util";
+import iconBG from "../../public/Main.png";
 
 const MainHead = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,7 +35,7 @@ const MainHead = () => {
             <Navbar.Brand style={{ width: "55px" }}>
               <img
                 className="w-100 h-100"
-                src="../../public/Main.png"
+                src={iconBG}
                 alt="Master Game"
               />
             </Navbar.Brand>

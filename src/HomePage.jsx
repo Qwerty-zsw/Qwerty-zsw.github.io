@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import MainHead from "./MainHead/MainHead";
+import paraBG from "../public/asd.png";
 
 const HomePage = () => {
   const [GamesData, setGamesData] = useState([]);
@@ -33,7 +34,7 @@ const HomePage = () => {
         ParaText="تلاش برای رسیدن به آخرین سطح"
         paraSmallText="با مسترگیم یه پله از بقیه گیمر ها جلوتر باش!"
         paraSmallFont="font-s"
-        bgImg="../public/asd.png"
+        bgImg={paraBG}
       />
       <div className="bgc-cus">
         <div className="w-100 d-flex justify-content-center flex-wrap gap-4 py-5">
