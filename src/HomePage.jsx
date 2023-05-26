@@ -3,33 +3,14 @@ import { Col } from "react-bootstrap";
 import Footer from "./Footer/Footer";
 import Main from "./Main/Main";
 import MainCard from "./MainCard/MainCard";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import MainHead from "./MainHead/MainHead";
 import paraBG from "../public/asd.png";
 import LoadingPG from "./LoadingPG";
+import FetchData from "./hooks/FetchData";
 
 const HomePage = () => {
-  const [loading, setLoading] = useState(true);
-  const [GamesData, setGamesData] = useState([]);
-
-  useEffect(() => {
-    setTimeout(() => {
-    axios
-      .get(
-        "https://schh-413d6-default-rtdb.europe-west1.firebasedatabase.app/CardGames.json"
-      )
-      .then((res) => {
-        setGamesData(res.data);
-          setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-        setLoading(false);
-      });
-    }, 500);
-  }, []);
+  const [loading, data] = FetchData("https://schh-413d6-default-rtdb.europe-west1.firebasedatabase.app/CardGames.json")
 
   return (
     <div className="w-100 h-100">
@@ -52,7 +33,7 @@ const HomePage = () => {
           />
           <div className="bgc-cus">
             <div className="w-100 d-flex justify-content-center flex-wrap gap-4 py-5">
-              {GamesData.map((item) => {
+              {data.map((item) => {
                 return (
                   <Col
                     className="px-4"
