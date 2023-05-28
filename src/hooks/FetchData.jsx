@@ -6,16 +6,18 @@ const FetchData = (url, dependencies) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-      axios
-        .get(url)
-        .then((res) => {
-          setData(res.data);
-          setLoading(false);
-        })
-        .catch((err) => {
-          console.log(err);
-          setLoading(false);
-        });
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(url);
+        setData(res.data);
+        setLoading(false);
+      } catch (err) {
+        console.log(err);
+        setLoading(false);
+      }
+    };
+
+    fetchData()
   }, dependencies);
 
   return [loading, data];
