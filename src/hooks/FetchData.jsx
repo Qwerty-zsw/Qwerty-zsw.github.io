@@ -17,7 +17,7 @@ const FetchData = (url, dependencies) => {
       }
     };
 
-    fetchData()
+    fetchData();
   }, dependencies);
 
   return [loading, data];
