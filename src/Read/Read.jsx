@@ -11,7 +11,7 @@ const Read = () => {
     `https://schh-413d6-default-rtdb.europe-west1.firebasedatabase.app/CardGames/${pageID}.json`,
     [pageID]
   );
-
+  
   return (
     <>
       {loading ? (
@@ -19,7 +19,7 @@ const Read = () => {
       ) : (
         <>
           <div className="w-100 top-0 position-absolute z-10">
-            <MainHead />
+            <MainHead searchClass={"d-none"} />
           </div>
           <div
             className="w-100 h-75 text-center text-white flex-column bg-image d-flex justify-content-center align-items-center"

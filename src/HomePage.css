@@ -4,3 +4,7 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.minHeight{
+    min-height: 43vh !important;
+}
