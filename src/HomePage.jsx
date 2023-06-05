@@ -12,7 +12,8 @@ import { useState } from "react";
 
 const HomePage = () => {
   const [loading, data] = FetchData(
-    "https://schh-413d6-default-rtdb.europe-west1.firebasedatabase.app/CardGames.json"
+    "https://schh-413d6-default-rtdb.europe-west1.firebasedatabase.app/CardGames.json",
+    []
   );
   const [isSearch, setisSearch] = useState("");
 
@@ -45,7 +46,9 @@ const HomePage = () => {
                   if (isSearch == "") {
                     return val;
                   } else if (
-                    val.searchOption.toLowerCase().includes(isSearch.toLowerCase())
+                    val.searchOption
+                      .toLowerCase()
+                      .includes(isSearch.toLowerCase())
                   ) {
                     return val;
                   }
