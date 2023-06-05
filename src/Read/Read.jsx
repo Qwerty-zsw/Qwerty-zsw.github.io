@@ -14,7 +14,7 @@ const Read = () => {
   );
 
   if (!data) {
-    return navigate("/notfound", { replace: true });
+    navigate("/notfound", { replace: true });
   }
 
   return (
