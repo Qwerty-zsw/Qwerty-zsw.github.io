@@ -1,20 +1,20 @@
 import "./Read.css";
 import Footer from "../Footer/Footer";
 import MainHead from "../MainHead/MainHead";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import LoadingPG from "../LoadingPG";
 import FetchData from "../hooks/FetchData";
-import NotFound from "../NotFound";
 
 const Read = () => {
   const { pageID } = useParams();
+  const navigate = useNavigate();
   const [loading, data] = FetchData(
     `https://schh-413d6-default-rtdb.europe-west1.firebasedatabase.app/CardGames/${pageID}.json`,
     [pageID]
   );
 
   if (!data) {
-    return <NotFound />;
+    return navigate("/notfound", { replace: true });
   }
 
   return (
