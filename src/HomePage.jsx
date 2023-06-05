@@ -62,7 +62,7 @@ const HomePage = () => {
                       lg={3}
                       key={`Gamedata-${item.id}`}
                     >
-                      <Link to={`${item.id}`}>
+                      <Link to={`game/${item.id}`}>
                         <MainCard
                           productImg={item.image}
                           TitleName={item.title}

@@ -10,7 +10,7 @@ const routes = [
   { path: "/", element: <HomePage /> },
   { path: "/ورود", element: <LoginPage /> },
   { path: "/ثبت-نام", element: <Signup /> },
-  { path: "/:pageID", element: <Read /> },
+  { path: "game/:pageID", element: <Read /> },
   { path: "/ریست-پسورد", element: <PassReset /> },
   { path: "/کد-تایید", element: <ConfirmCode /> },
   { path: "/*", element: <NotFound /> },

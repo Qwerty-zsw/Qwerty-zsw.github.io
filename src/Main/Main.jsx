@@ -31,10 +31,10 @@ const Main = ({
               </small>
             </div>
             <div className="w-100 d-flex justify-content-center mt-4">
-              <Link to={"2"}>
+              <Link to={"game/2"}>
                 <Btnz BtnText={BtnText} BtnSecClassName={BtnClassMain} />
               </Link>
-              <Link to={"0"}>
+              <Link to={"game/0"}>
                 <Btnz BtnSecClassName={BtnSecClassName} BtnText={BtnTextSec} />
               </Link>
             </div>

@@ -4,6 +4,7 @@ import MainHead from "../MainHead/MainHead";
 import { useParams } from "react-router-dom";
 import LoadingPG from "../LoadingPG";
 import FetchData from "../hooks/FetchData";
+import NotFound from "../NotFound";
 
 const Read = () => {
   const { pageID } = useParams();
@@ -11,7 +12,11 @@ const Read = () => {
     `https://schh-413d6-default-rtdb.europe-west1.firebasedatabase.app/CardGames/${pageID}.json`,
     [pageID]
   );
-  
+
+  if (!data) {
+    return <NotFound />;
+  }
+
   return (
     <>
       {loading ? (
@@ -40,65 +45,31 @@ const Read = () => {
               <div className="w-22 h-100 bg-cust rounded-8 ms-4 text-white mobile-hide">
                 <ul className="w-100 py-4">
                   <li className="text-center">{data.readSmallLink}</li>
-                  <li className="mt-4 text-center">
-                    {data.readSmallLink}
-                  </li>
-                  <li className="mt-4 text-center">
-                    {data.readSmallLink}
-                  </li>
-                  <li className="mt-4 text-center">
-                    {data.readSmallLink}
-                  </li>
-                  <li className="mt-4 text-center">
-                    {data.readSmallLink}
-                  </li>
-                  <li className="mt-4 text-center">
-                    {data.readSmallLink}
-                  </li>
-                  <li className="mt-4 text-center">
-                    {data.readSmallLink}
-                  </li>
-                  <li className="mt-4 text-center">
-                    {data.readSmallLink}
-                  </li>
-                  <li className="mt-4 text-center">
-                    {data.readSmallLink}
-                  </li>
-                  <li className="mt-4 text-center">
-                    {data.readSmallLink}
-                  </li>
-                  <li className="mt-4 text-center">
-                    {data.readSmallLink}
-                  </li>
-                  <li className="mt-4 text-center">
-                    {data.readSmallLink}
-                  </li>
-                  <li className="mt-4 text-center">
-                    {data.readSmallLink}
-                  </li>
-                  <li className="mt-4 text-center">
-                    {data.readSmallLink}
-                  </li>
+                  <li className="mt-4 text-center">{data.readSmallLink}</li>
+                  <li className="mt-4 text-center">{data.readSmallLink}</li>
+                  <li className="mt-4 text-center">{data.readSmallLink}</li>
+                  <li className="mt-4 text-center">{data.readSmallLink}</li>
+                  <li className="mt-4 text-center">{data.readSmallLink}</li>
+                  <li className="mt-4 text-center">{data.readSmallLink}</li>
+                  <li className="mt-4 text-center">{data.readSmallLink}</li>
+                  <li className="mt-4 text-center">{data.readSmallLink}</li>
+                  <li className="mt-4 text-center">{data.readSmallLink}</li>
+                  <li className="mt-4 text-center">{data.readSmallLink}</li>
+                  <li className="mt-4 text-center">{data.readSmallLink}</li>
+                  <li className="mt-4 text-center">{data.readSmallLink}</li>
+                  <li className="mt-4 text-center">{data.readSmallLink}</li>
                 </ul>
               </div>
               <div className="w-75 main-text h-auto bg-cust rounded-9 me-4 text-white p-5">
                 <h3 className="lh-base readTitle2">{data.readTitle}</h3>
                 <p className="mt-3">{data.readDescription}</p>
-                <h3 className="mt-4 lh-base readTitle2">
-                  {data.readTitle}
-                </h3>
+                <h3 className="mt-4 lh-base readTitle2">{data.readTitle}</h3>
                 <p className="mt-3">{data.readDescription}</p>
-                <h3 className="mt-4 lh-base readTitle2">
-                  {data.readTitle}
-                </h3>
+                <h3 className="mt-4 lh-base readTitle2">{data.readTitle}</h3>
                 <p className="mt-3">{data.readDescription}</p>
-                <h3 className="mt-4 lh-base readTitle2">
-                  {data.readTitle}
-                </h3>
+                <h3 className="mt-4 lh-base readTitle2">{data.readTitle}</h3>
                 <p className="mt-3">{data.readDescription}</p>
-                <h3 className="mt-4 lh-base readTitle2">
-                  {data.readTitle}
-                </h3>
+                <h3 className="mt-4 lh-base readTitle2">{data.readTitle}</h3>
                 <p className="mt-3">{data.readDescription}</p>
               </div>
             </div>
