@@ -53,14 +53,14 @@ const HomePage = () => {
                     return val;
                   }
                 })
-                .map((item) => {
+                .map((item, index) => {
                   return (
                     <Col
                       className="px-4"
                       xs={12}
                       sm={5}
                       lg={3}
-                      key={`Gamedata-${item.id}`}
+                      key={`Gamedata-${index}`}
                     >
                       <Link to={`game/${item.id}`}>
                         <MainCard
