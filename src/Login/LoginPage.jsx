@@ -18,6 +18,9 @@ import { Form } from "react-bootstrap";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import loginBG from "../../public/csG.jpg";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../cfg/firebase";
+import { ToastContainer, toast } from "react-toastify";
 
 const LoginPage = () => {
   const schema = yup.object().shape({
@@ -31,10 +34,6 @@ const LoginPage = () => {
     password: yup.string().required("لطفا رمز عبور خود را وارد کنید!"),
   });
 
-  const OnSubmit = (data) => {
-    console.log(data);
-  };
-
   const {
     register,
     handleSubmit,
@@ -43,6 +42,18 @@ const LoginPage = () => {
     resolver: yupResolver(schema),
   });
 
+  const signIn = async (data) => {
+    try {
+      await signInWithEmailAndPassword(
+        auth,
+        data.EmailorUser,
+        data.password
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <>
       <MDBContainer
@@ -50,6 +61,7 @@ const LoginPage = () => {
         className="w-100 h-100 d-flex justify-content-center align-items-center bg-image"
         style={{ backgroundImage: `url(${loginBG})` }}
       >
+        <ToastContainer />
         <MDBRow>
           <MDBCol col="12">
             <MDBCard
@@ -63,7 +75,7 @@ const LoginPage = () => {
                 </p>
 
                 <Form
-                  onSubmit={handleSubmit(OnSubmit)}
+                  onSubmit={handleSubmit(signIn)}
                   className="w-100 text-center"
                 >
                   <MDBInput
@@ -140,7 +152,7 @@ const LoginPage = () => {
                   <p className="mb-0">
                     حساب کاربری ندارید؟{" "}
                     <LinkContainer to={"/ثبت-نام"}>
-                      <a class="fw-bold">ثبت نام</a>
+                      <a className="fw-bold">ثبت نام</a>
                     </LinkContainer>
                   </p>
                 </div>

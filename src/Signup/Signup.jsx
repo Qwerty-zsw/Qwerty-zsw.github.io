@@ -10,11 +10,16 @@ import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import axios from "axios";
 import signupBG from "../../public/wzG.jpg";
 import { ToastContainer, toast } from "react-toastify";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../cfg/firebase";
+import { useState } from "react";
+import { Checkbox, FormControlLabel } from "@mui/material";
 
 const Signup = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const schema = yup.object().shape({
     user: yup
       .string()
@@ -42,24 +47,34 @@ const Signup = () => {
     register,
     handleSubmit,
     formState: { errors },
+    setError,
   } = useForm({
     resolver: yupResolver(schema),
   });
+  const signUp = async (formData) => {
+    try {
+      setIsLoading(true);
 
-  const OnSubmit = (data) => {
-    axios
-      .post(
-        "https://schh-413d6-default-rtdb.europe-west1.firebasedatabase.app/Users.json",
-        data
-      )
-      .then(() => {
-        toast.success("موفقیت آمیز", {
-          theme: "colored",
+      await createUserWithEmailAndPassword(
+        auth,
+        formData.email,
+        formData.password,
+        formData.confirmPassword
+      );
+
+      toast.success("ثبت نام با موفقیت انجام شد!");
+    } catch (err) {
+      if (err.code === "auth/email-already-in-use") {
+        setError("email", {
+          type: "manual",
+          message: "این ایمیل قبلاً ثبت شده است!",
         });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      } else {
+        console.log(err.message);
+      }
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -75,7 +90,7 @@ const Signup = () => {
         style={{ minWidth: "340px", maxWidth: "600px", borderRadius: "3rem" }}
       >
         <MDBCardBody>
-          <h2 className="text-uppercase text-center lh-1 text-sizeCus">
+          <h2 className="text-uppercase fs-4 text-center lh-1 text-sizeCus">
             ایجاد حساب کاربری
           </h2>
           <small className="w-100 d-flex justify-content-center mb-5 smallCus">
@@ -83,7 +98,7 @@ const Signup = () => {
           </small>
           <Form
             className="w-100 d-flex flex-column justify-content-center"
-            onSubmit={handleSubmit(OnSubmit)}
+            onSubmit={handleSubmit(signUp)}
           >
             <MDBInput
               wrapperClass="mb-1 w-100 TextInp"
@@ -113,7 +128,7 @@ const Signup = () => {
               label="رمز عبور"
               id="formControlLg"
               size="lg"
-              type="password"
+              type={showPassword ? "text" : "password"}
               {...register("password")}
             />
             <small className="text-danger mb-3 TextInp">
@@ -125,17 +140,32 @@ const Signup = () => {
               label="تکرار رمز عبور"
               id="formControlLg2"
               size="lg"
-              type="password"
+              type={showPassword ? "text" : "password"}
               {...register("confirmPassword")}
             />
             <small className="text-danger mb-4 TextInp">
               {errors.confirmPassword?.message}
             </small>
+            <div className="mb-4">
+              <FormControlLabel
+                className="user-select-none"
+                control={
+                  <Checkbox
+                    onClick={() => setShowPassword(!showPassword)}
+                    sx={{
+                      color: "rgb(180, 180, 180)",
+                    }}
+                  />
+                }
+                label="نمایش رمزعبور"
+              />
+            </div>
             <MDBBtn
               className="mb-4 w-100 gradient-custom-4 text-black TextInp"
               size="lg"
+              disabled={isLoading}
             >
-              ثبت نام
+              {isLoading ? "در حال ثبت نام..." : "ثبت نام"}
             </MDBBtn>
           </Form>
         </MDBCardBody>

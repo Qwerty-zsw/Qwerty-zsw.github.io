@@ -12,11 +12,21 @@ import { IoSearchCircleOutline } from "react-icons/io5";
 import Form from "react-bootstrap/Form";
 import { showLogin } from "../util";
 import iconBG from "../../public/Main.png";
+import { signOut } from "firebase/auth";
+import { auth } from "../../cfg/firebase";
 
 const MainHead = ({ onSearch, searchClass }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [Max, setMax] = useState(false);
   const isUserLogin = showLogin("Masoud");
+
+  const logout = async () => {
+    try {
+      await signOut(auth);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <>
@@ -85,6 +95,12 @@ const MainHead = ({ onSearch, searchClass }) => {
                   ورود
                 </Nav.Link>
               </LinkContainer>
+              <Nav.Link
+                onClick={logout}
+                className="login100 bg-white text-black fw-bold cusLog"
+              >
+                خروج
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
