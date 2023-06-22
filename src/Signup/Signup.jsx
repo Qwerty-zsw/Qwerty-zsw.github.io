@@ -12,6 +12,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
 import signupBG from "../../public/wzG.jpg";
+import { ToastContainer, toast } from "react-toastify";
 
 const Signup = () => {
   const schema = yup.object().shape({
@@ -48,17 +49,19 @@ const Signup = () => {
   const OnSubmit = (data) => {
     axios
       .post(
-        "https://schh-413d6-default-rtdb.europe-west1.firebasedatabase.app/users.json",
+        "https://schh-413d6-default-rtdb.europe-west1.firebasedatabase.app/Users.json",
         data
       )
-      .then((res) => {
-        console.log(res);
+      .then(() => {
+        toast.success("موفقیت آمیز", {
+          theme: "colored",
+        });
       })
       .catch((err) => {
         console.log(err);
       });
   };
-  
+
   return (
     <MDBContainer
       fluid
@@ -120,7 +123,7 @@ const Signup = () => {
               wrapperClass="mb-1 w-100 TextInp"
               labelClass="text-white"
               label="تکرار رمز عبور"
-              id="formControlLg"
+              id="formControlLg2"
               size="lg"
               type="password"
               {...register("confirmPassword")}
@@ -137,6 +140,7 @@ const Signup = () => {
           </Form>
         </MDBCardBody>
       </MDBCard>
+      <ToastContainer />
     </MDBContainer>
   );
 };
