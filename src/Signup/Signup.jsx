@@ -62,7 +62,9 @@ const Signup = () => {
         formData.confirmPassword
       );
 
-      toast.success("ثبت نام با موفقیت انجام شد!");
+      toast.success("ثبت نام با موفقیت انجام شد", {
+        theme: "colored",
+      });
     } catch (err) {
       if (err.code === "auth/email-already-in-use") {
         setError("email", {
