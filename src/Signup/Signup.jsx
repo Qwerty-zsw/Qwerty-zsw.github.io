@@ -71,8 +71,6 @@ const Signup = () => {
           type: "manual",
           message: "این ایمیل قبلاً ثبت شده است!",
         });
-      } else {
-        console.log(err.message);
       }
     } finally {
       setIsLoading(false);
@@ -88,14 +86,14 @@ const Signup = () => {
       }}
     >
       <MDBCard
-        className="bg-blur py-4 px-3 text-muted"
-        style={{ minWidth: "340px", maxWidth: "600px", borderRadius: "3rem" }}
+        className="bg-blur py-4 px-4"
+        style={{ minWidth: "400px", maxWidth: "600px", borderRadius: "3rem" }}
       >
         <MDBCardBody>
-          <h2 className="text-uppercase fs-4 text-center lh-1 text-sizeCus">
+          <h2 className="text-uppercase fs-4 text-center lh-1 text-sizeCus user-select-none">
             ایجاد حساب کاربری
           </h2>
-          <small className="w-100 d-flex justify-content-center mb-5 smallCus">
+          <small className="w-100 d-flex justify-content-center mb-5 smallCus user-select-none">
             به جامعه پرو پلیرا بپیوند!
           </small>
           <Form
@@ -159,7 +157,7 @@ const Signup = () => {
                     }}
                   />
                 }
-                label="نمایش رمزعبور"
+                label="نمایش رمز عبور"
               />
             </div>
             <MDBBtn

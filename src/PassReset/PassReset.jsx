@@ -13,8 +13,13 @@ import { Form } from "react-bootstrap";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import ResetPassBG from "../../public/ResetPass.jpg";
+import { sendPasswordResetEmail } from "firebase/auth";
+import { auth } from "../../cfg/firebase";
+import { ToastContainer, toast } from "react-toastify";
+import { useState } from "react";
 
 const PassReset = () => {
+  const [IsLoading, setIsLoading] = useState(false);
   const schema = yup.object().shape({
     emailORuser: yup
       .string()
@@ -34,8 +39,20 @@ const PassReset = () => {
     resolver: yupResolver(schema),
   });
 
-  const Onsubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    setIsLoading(true);
+    try {
+      await sendPasswordResetEmail(auth, data.emailORuser);
+      toast.success("لطفا ایمیل خود را چک کنید", {
+        theme: "colored",
+      });
+    } catch (error) {
+      toast.error("ایمیل یا نام‌کاربری وجود ندارد", {
+        theme: "colored",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -47,21 +64,24 @@ const PassReset = () => {
           backgroundImage: `url(${ResetPassBG})`,
         }}
       >
+        <ToastContainer />
         <MDBRow className="w-100">
           <MDBCol col="12">
             <MDBCard
               className="text-white mx-auto bg-blur"
-              style={{ borderRadius: "3rem", maxWidth:"600px" }}
+              style={{ borderRadius: "3rem", maxWidth: "600px" }}
             >
               <MDBCardBody className="px-5 d-flex flex-column align-items-center w-100">
-                <h2 className="fw-bold mb-2 text-uppercase text-sizeCus">ریست پسورد</h2>
-                <p className="text-white-50 mb-5 mt-2 smallCus">
+                <h2 className="fw-bold mb-2 fs-3 text-uppercase text-sizeCus">
+                  ریست پسورد
+                </h2>
+                <p className="text-white-75 mb-5 mt-2 smallCus">
                   یوزر یا ایمیل خود را وارد کنید.
                 </p>
 
                 <Form
                   className="d-flex flex-column align-items-center w-100"
-                  onSubmit={handleSubmit(Onsubmit)}
+                  onSubmit={handleSubmit(onSubmit)}
                 >
                   <MDBInput
                     wrapperClass="mb-3 w-100"
@@ -81,8 +101,9 @@ const PassReset = () => {
                     color="light"
                     rippleColor="white"
                     size="lg"
+                    disabled={IsLoading}
                   >
-                    ارسال
+                    {IsLoading ? "درحال ارسال..." : "ارسال"}
                   </MDBBtn>
                 </Form>
               </MDBCardBody>

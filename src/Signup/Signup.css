@@ -10,6 +10,11 @@
     rgba(132, 250, 176, 1),
     rgba(143, 211, 244, 1)
   );
+  box-shadow: 0 3px 9px 0 white;
+}
+
+.gradient-custom-4:hover{
+  box-shadow: 0 3px 20px 0 white;
 }
 
 .form-label{
@@ -35,7 +40,7 @@
 }
 
 .MuiButtonBase-root{
-  padding:0 0 0 9px !important;
+  padding:0 0 0 5px !important;
 }
 
 .text-uppercase{

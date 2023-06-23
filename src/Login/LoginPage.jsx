@@ -21,8 +21,14 @@ import loginBG from "../../public/csG.jpg";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../cfg/firebase";
 import { ToastContainer, toast } from "react-toastify";
+import { useState } from "react";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 
 const LoginPage = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [showPass, isShowPass] = useState(false);
+
   const schema = yup.object().shape({
     EmailorUser: yup
       .string()
@@ -44,13 +50,18 @@ const LoginPage = () => {
 
   const signIn = async (data) => {
     try {
-      await signInWithEmailAndPassword(
-        auth,
-        data.EmailorUser,
-        data.password
-      );
-    } catch (err) {
-      console.log(err);
+      setIsLoading(true);
+
+      await signInWithEmailAndPassword(auth, data.EmailorUser, data.password);
+      toast.success("ورود با موفقیت انجام شد", {
+        theme: "colored",
+      });
+    } catch (error) {
+      toast.error("مشکل در ورود", {
+        theme: "colored",
+      });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -69,8 +80,10 @@ const LoginPage = () => {
               style={{ borderRadius: "3rem", maxWidth: "400px" }}
             >
               <MDBCardBody className="w-100 p-5 d-flex flex-column align-items-center mx-auto">
-                <h2 className="fw-bold mb-2 text-uppercase">ورود</h2>
-                <p className="text-white-50 mb-5 mt-2 smallCus">
+                <h2 className="fw-bold mb-2 fs-3 text-uppercase user-select-none">
+                  ورود
+                </h2>
+                <p className="text-white-75 mb-5 mt-2 smallCus user-select-none">
                   لطفا نام کاربری و رمزعبور خود را وارد کنید
                 </p>
 
@@ -92,14 +105,26 @@ const LoginPage = () => {
                       {errors.EmailorUser?.message}
                     </section>
                   </small>
-                  <MDBInput
-                    wrapperClass="mt-3 w-100 TextInp"
-                    labelClass="text-white"
-                    label="رمز عبور"
-                    id="formControlLg"
-                    size="lg"
-                    {...register("password")}
-                  />
+                  <div className="position-relative">
+                    <MDBInput
+                      wrapperClass="mt-3 w-100 TextInp"
+                      labelClass="text-white"
+                      label="رمز عبور"
+                      id="formControlLg"
+                      size="lg"
+                      type={showPass ? "text" : "password"}
+                      {...register("password")}
+                    />
+                    <MDBBtn
+                      tag="a"
+                      color="none"
+                      className="d-flex align-items-center px-3 position-absolute showPass"
+                      style={{ color: "rgba(185, 185, 185)" }}
+                      onClick={() => isShowPass(!showPass)}
+                    >
+                      {showPass ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                    </MDBBtn>
+                  </div>
                   <small className="w-100 TextInp">
                     <section className="w-100 d-flex mt-1 text-danger">
                       {errors.password?.message}
@@ -111,8 +136,9 @@ const LoginPage = () => {
                     color="light"
                     rippleColor="white"
                     size="lg"
+                    disabled={isLoading}
                   >
-                    ورود
+                    {isLoading ? "در حال ورود..." : "ورود"}
                   </MDBBtn>
                 </Form>
 
@@ -149,7 +175,7 @@ const LoginPage = () => {
                   </MDBBtn>
                 </div>
                 <div>
-                  <p className="mb-0">
+                  <p className="mb-0 user-select-none">
                     حساب کاربری ندارید؟{" "}
                     <LinkContainer to={"/ثبت-نام"}>
                       <a className="fw-bold">ثبت نام</a>
