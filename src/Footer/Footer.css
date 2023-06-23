@@ -10,3 +10,7 @@
     flex-direction: column !important;
   }
 }
+
+.text-blue{
+  color: blue;
+}
