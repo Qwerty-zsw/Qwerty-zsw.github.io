@@ -3,30 +3,18 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { LinkContainer } from "react-router-bootstrap";
 import { NavLink } from "react-router-dom";
 import { MdMenu } from "react-icons/md";
 import { BiMenuAltRight } from "react-icons/bi";
 import { useState } from "react";
 import { IoSearchCircleOutline } from "react-icons/io5";
 import Form from "react-bootstrap/Form";
-import { showLogin } from "../util";
 import iconBG from "../../public/Main.png";
-import { signOut } from "firebase/auth";
-import { auth } from "../../cfg/firebase";
+import AuthDetails from "../auth/AuthDetails";
 
 const MainHead = ({ onSearch, searchClass }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [Max, setMax] = useState(false);
-  const isUserLogin = showLogin("Masoud");
-
-  const logout = async () => {
-    try {
-      await signOut(auth);
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   return (
     <>
@@ -65,9 +53,7 @@ const MainHead = ({ onSearch, searchClass }) => {
             >
               <NavDropdown
                 onClick={() => setMax(!Max)}
-                className={`fw-bold text-center ${
-                  isUserLogin ? "" : "invisible"
-                }`}
+                className="fw-bold text-center ms-5"
                 title="آموزش ها"
                 id="navbarScrollingDropdown"
               >
@@ -90,17 +76,7 @@ const MainHead = ({ onSearch, searchClass }) => {
                   OFFLINE
                 </NavDropdown.Item>
               </NavDropdown>
-              <LinkContainer to="/ورود">
-                <Nav.Link className="login100 bg-white text-black fw-bold cusLog">
-                  ورود
-                </Nav.Link>
-              </LinkContainer>
-              <Nav.Link
-                onClick={logout}
-                className="login100 bg-white text-black fw-bold cusLog"
-              >
-                خروج
-              </Nav.Link>
+              <AuthDetails />
             </Nav>
           </Navbar.Collapse>
         </Container>

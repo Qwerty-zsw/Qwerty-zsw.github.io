@@ -9,6 +9,7 @@ import paraBG from "../public/asd.png";
 import LoadingPG from "./LoadingPG";
 import FetchData from "./hooks/FetchData";
 import { useState } from "react";
+import AuthDetails from "./auth/AuthDetails";
 
 const HomePage = () => {
   const [loading, data] = FetchData(

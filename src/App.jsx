@@ -1,7 +1,7 @@
 import { useRoutes } from "react-router-dom";
 import routes from "./routes";
 import { Element } from "react-scroll";
-import { animateScroll as scroll } from 'react-scroll';
+import { animateScroll as scroll } from "react-scroll";
 
 const App = () => {
   let router = useRoutes(routes);

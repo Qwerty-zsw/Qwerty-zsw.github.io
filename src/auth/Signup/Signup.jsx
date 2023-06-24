@@ -10,14 +10,13 @@ import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import signupBG from "../../public/wzG.jpg";
+import signupBG from "../../../public/wzG.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../cfg/firebase";
+import { auth } from "../../../cfg/firebase";
 import { useState } from "react";
 import { Checkbox, FormControlLabel } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-
 
 const Signup = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -55,22 +54,22 @@ const Signup = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  const signUp = async (formData) => {
+  const signUp = async (data) => {
     try {
       setIsLoading(true);
 
       await createUserWithEmailAndPassword(
         auth,
-        formData.email,
-        formData.password,
-        formData.confirmPassword
+        data.email,
+        data.password,
+        data.confirmPassword
       );
 
       toast.success("ثبت نام با موفقیت انجام شد", {
         theme: "colored",
       });
       setTimeout(() => {
-        navigate('/');
+        navigate("/");
       }, 1000);
     } catch (err) {
       if (err.code === "auth/email-already-in-use") {
