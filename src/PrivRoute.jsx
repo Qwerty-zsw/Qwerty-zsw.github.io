@@ -1,7 +1,7 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { showLogin } from "./util";
 
-const PrivRoute = ({children}) => {
+const PrivRoute = ({ children }) => {
   const isUserLogin = showLogin("Masoud");
 
   return <div>{isUserLogin ? <Outlet /> : <Navigate to={"/ورود"} />}</div>;
