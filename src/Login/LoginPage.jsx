@@ -12,7 +12,7 @@ import {
   MDBInput,
   MDBIcon,
 } from "mdb-react-ui-kit";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Form } from "react-bootstrap";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -28,6 +28,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 const LoginPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showPass, isShowPass] = useState(false);
+  const navigate = useNavigate();
 
   const schema = yup.object().shape({
     EmailorUser: yup
@@ -56,6 +57,9 @@ const LoginPage = () => {
       toast.success("ورود با موفقیت انجام شد", {
         theme: "colored",
       });
+      setTimeout(() => {
+        navigate('/');
+      }, 1000);
     } catch (error) {
       toast.error("مشکل در ورود", {
         theme: "colored",

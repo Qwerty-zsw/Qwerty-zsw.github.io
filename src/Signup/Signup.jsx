@@ -16,10 +16,14 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../cfg/firebase";
 import { useState } from "react";
 import { Checkbox, FormControlLabel } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+
 
 const Signup = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+
   const schema = yup.object().shape({
     user: yup
       .string()
@@ -65,6 +69,9 @@ const Signup = () => {
       toast.success("ثبت نام با موفقیت انجام شد", {
         theme: "colored",
       });
+      setTimeout(() => {
+        navigate('/');
+      }, 1000);
     } catch (err) {
       if (err.code === "auth/email-already-in-use") {
         setError("email", {
