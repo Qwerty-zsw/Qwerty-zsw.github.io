@@ -53,7 +53,7 @@ const MainHead = ({ onSearch, searchClass }) => {
             >
               <NavDropdown
                 onClick={() => setMax(!Max)}
-                className="fw-bold text-center ms-5"
+                className="fw-bold text-center"
                 title="آموزش ها"
                 id="navbarScrollingDropdown"
               >

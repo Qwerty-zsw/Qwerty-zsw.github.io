@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import { auth } from "../../cfg/firebase";
 import { LinkContainer } from "react-router-bootstrap";
 import Nav from "react-bootstrap/Nav";
-import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import UserAccordion from "./UserAccordion";
+import "./AuthDetails.css";
 
 const AuthDetails = () => {
   const [authUser, setAuthUser] = useState(null);
@@ -21,14 +21,6 @@ const AuthDetails = () => {
     });
   }, []);
 
-  const logout = async () => {
-    try {
-      await signOut(auth);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   useEffect(() => {
     if (authUser) {
       navigate("/");
@@ -38,7 +30,9 @@ const AuthDetails = () => {
   return (
     <div className="w-100 h-100">
       {authUser ? (
-        <UserAccordion onClick={logout} />
+        <div className="asdasdasd">
+          <UserAccordion />
+        </div>
       ) : (
         <LinkContainer to="/ورود">
           <Nav.Link className="login100 bg-white text-black fw-bold cusLog">
