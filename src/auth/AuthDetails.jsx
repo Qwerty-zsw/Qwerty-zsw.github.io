@@ -30,7 +30,7 @@ const AuthDetails = () => {
   return (
     <div className="w-100 h-100">
       {authUser ? (
-        <div className="asdasdasd">
+        <div className="marginRight22">
           <UserAccordion />
         </div>
       ) : (

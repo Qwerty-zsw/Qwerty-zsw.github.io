@@ -16,8 +16,9 @@ const Read = () => {
     [pageID]
   );
 
-  if (!data) {
+  if (!loading && !data) {
     navigate("/notfound", { replace: true });
+    return null;
   }
 
   useEffect(() => {

@@ -9,7 +9,6 @@ import paraBG from "../public/asd.png";
 import LoadingPG from "./LoadingPG";
 import FetchData from "./hooks/FetchData";
 import { useState } from "react";
-import AuthDetails from "./auth/AuthDetails";
 
 const HomePage = () => {
   const [loading, data] = FetchData(
@@ -21,6 +20,7 @@ const HomePage = () => {
   const handelSearch = (q) => {
     setisSearch(q);
   };
+
   return (
     <div className="w-100 h-100">
       {loading ? (
