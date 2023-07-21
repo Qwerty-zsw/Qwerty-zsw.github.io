@@ -54,7 +54,7 @@ const Read = () => {
           </div>
           <div className="w-100 text-justify d-flex justify-content-center h-auto bg-custom1 pt-5 pb-5">
             <div className="w-85 mobile-main flex-row-reverse h-100 d-flex mobile-read">
-              <div className="w-22 h-100 bg-cust rounded-8 ms-4 text-white mobile-hide py-4">
+              <div className="w-22 h-100 bg-cust rounded-8 ms-4 text-white mobile-hide py-4 px-2">
                 {suggest.map((item, index) => {
                   return (
                     <Link
@@ -62,7 +62,7 @@ const Read = () => {
                       to={`/game/${item.address}`}
                       className="text-white"
                     >
-                      <ul className="w-100 py-1">
+                      <ul className="w-100 py-1 bg-hover rounded-6">
                         <li className="text-center py-2">
                           {item.readSmallLink}
                         </li>
@@ -80,7 +80,6 @@ const Read = () => {
                 <p className="mt-3">{data.readDescription}</p>
                 <h3 className="mt-4 lh-base readTitle2">{data.readTitle}</h3>
                 <p className="mt-3">{data.readDescription}</p>
-                {/* custom */}
               </div>
             </div>
           </div>
