@@ -3,35 +3,29 @@ import { useEffect, useState } from "react";
 import { auth } from "../../cfg/firebase";
 import { LinkContainer } from "react-router-bootstrap";
 import Nav from "react-bootstrap/Nav";
-import { useNavigate } from "react-router-dom";
 import UserAccordion from "./UserAccordion";
 import "./AuthDetails.css";
 
 const AuthDetails = () => {
   const [authUser, setAuthUser] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setAuthUser(user);
       } else {
         setAuthUser(null);
       }
     });
-  }, []);
 
-  useEffect(() => {
-    if (authUser) {
-      navigate("/");
-    }
-  }, [authUser, navigate]);
+    return () => unsubscribe();
+  }, []);
 
   return (
     <div className="w-100 h-100">
       {authUser ? (
         <div className="marginRight22">
-          <UserAccordion />
+          <UserAccordion user={authUser} />
         </div>
       ) : (
         <LinkContainer to="/ورود">

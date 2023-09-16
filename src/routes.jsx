@@ -6,6 +6,7 @@ import PassReset from "./PassReset/PassReset";
 import ConfirmCode from "./confirmCode/confirmCode";
 import NotFound from "./NotFound";
 import { Navigate } from "react-router-dom";
+import ProfileDisplay from "./auth/ProfileDisplay";
 
 const routes = [
   { path: "/", element: <HomePage /> },
@@ -15,6 +16,7 @@ const routes = [
   { path: "/ریست-پسورد", element: <PassReset /> },
   { path: "/کد-تایید", element: <ConfirmCode /> },
   { path: "/notfound", element: <NotFound /> },
+  { path: "/profile", element: <ProfileDisplay /> },
   { path: "/*", element: <Navigate to="/notfound" replace /> },
 ];
 

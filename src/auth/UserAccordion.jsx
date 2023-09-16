@@ -36,7 +36,7 @@ const UserAccordion = () => {
         <NavDropdown.Item
           className="fs-9 fw-bold rounded-5 text-center"
           onClick={() => setOpenHandle(!openHandle)}
-          href="#"
+          href="/profile"
         >
           ویرایش
         </NavDropdown.Item>
