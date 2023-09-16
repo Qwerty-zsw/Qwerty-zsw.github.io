@@ -100,7 +100,7 @@ const Signup = () => {
             ایجاد حساب کاربری
           </h2>
           <small className="w-100 d-flex justify-content-center mb-5 smallCus user-select-none">
-            به جامعه پرو پلیرا بپیوند!
+            به جامعه پرو پلیرا بپیوند! test
           </small>
           <Form
             className="w-100 d-flex flex-column justify-content-center"
