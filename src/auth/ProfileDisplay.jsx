@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import Profile from "./Profile";
 import { auth } from "../../cfg/firebase";
 import { useNavigate } from "react-router-dom";
+import PS5ui from "../../public/PS5ui.png";
 
 function ProfileDisplay() {
   const [user, setUser] = useState(null);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -13,7 +14,7 @@ function ProfileDisplay() {
         setUser(user);
       } else {
         setUser(null);
-        navigate("/ورود")
+        navigate("/ورود");
       }
     });
 
@@ -21,12 +22,8 @@ function ProfileDisplay() {
   }, []);
 
   return (
-    <div>
-      {user ? (
-        <Profile username={user.username} email={user.email} photo={user.photoURL} />
-      ) : (
-        null
-      )}
+    <div style={{ backgroundImage: `url(${PS5ui})` }} className="w-100 h-100 d-flex">
+      {user ? <Profile email={user.email} /> : null}
     </div>
   );
 }

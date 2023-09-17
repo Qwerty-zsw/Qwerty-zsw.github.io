@@ -1,11 +1,15 @@
 import { NavDropdown } from "react-bootstrap";
 import "./UserAccordion.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { signOut } from "firebase/auth";
-import { auth } from "../../cfg/firebase";
+import { auth, useAuth } from "../../cfg/firebase";
 
 const UserAccordion = () => {
+  const currentUser = useAuth();
   const [openHandle, setOpenHandle] = useState(false);
+  const [photoURL, setPhotoURL] = useState(
+    "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+  );
 
   const logout = async () => {
     try {
@@ -14,6 +18,12 @@ const UserAccordion = () => {
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    if (currentUser?.photoURL) {
+      setPhotoURL(currentUser.photoURL);
+    }
+  }, [currentUser]);
 
   return (
     <div className="d-flex justify-content-center position-relative margin-l2">
@@ -24,7 +34,8 @@ const UserAccordion = () => {
       >
         <img
           className="w-100 h-100 rounded-circle"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr_VW8rEM8sCasPR53whn3fE-CP7FVn0YPXiBt8eQ&s"
+          src={photoURL}
+          alt="Avatar"
         />
       </div>
 
