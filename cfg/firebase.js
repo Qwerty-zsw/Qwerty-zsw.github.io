@@ -8,6 +8,7 @@ import {
   deleteObject,
 } from "firebase/storage";
 import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBAsEdvG_8uXIWakuVxFiRfb9eE1Vh5cmc",
@@ -47,7 +48,10 @@ export async function upload(file, currentUser, setLoading) {
   updateProfile(currentUser, { photoURL });
 
   setLoading(false);
-  alert("Uploaded!");
+  window.location.reload();
+  toast.info("عکس تغییر کرد", {
+    theme: "colored",
+  });
 }
 
 export async function deletePhoto(currentUser) {
@@ -55,13 +59,14 @@ export async function deletePhoto(currentUser) {
 
   try {
     await deleteObject(fileRef);
-    alert("Deleted!");
+    toast.error("عکس حذف شد", {
+      theme: "colored",
+    });
 
     const defaultPhotoURL =
       "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png";
     await updateProfile(currentUser, { photoURL: defaultPhotoURL });
-
-    console.log("تصویر دیفالت تنظیم شد");
+    window.location.reload();
   } catch (error) {
     console.error("خطا در حذف عکس:", error);
   }
