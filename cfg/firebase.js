@@ -1,6 +1,12 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, updateProfile, onAuthStateChanged } from "firebase/auth";
-import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import {
+  getDownloadURL,
+  getStorage,
+  ref,
+  uploadBytes,
+  deleteObject,
+} from "firebase/storage";
 import { useState, useEffect } from "react";
 
 const firebaseConfig = {
@@ -31,15 +37,32 @@ export const useAuth = () => {
 };
 
 export async function upload(file, currentUser, setLoading) {
-  const fileRef = ref(storage, currentUser.uid + '.png');
+  const fileRef = ref(storage, currentUser.uid + ".png");
 
   setLoading(true);
-  
+
   const snapshot = await uploadBytes(fileRef, file);
   const photoURL = await getDownloadURL(fileRef);
 
-  updateProfile(currentUser, {photoURL});
-  
+  updateProfile(currentUser, { photoURL });
+
   setLoading(false);
-  alert("Uploaded file!");
+  alert("Uploaded!");
+}
+
+export async function deletePhoto(currentUser) {
+  const fileRef = ref(storage, currentUser.uid + ".png");
+
+  try {
+    await deleteObject(fileRef);
+    alert("Deleted!");
+
+    const defaultPhotoURL =
+      "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png";
+    await updateProfile(currentUser, { photoURL: defaultPhotoURL });
+
+    console.log("تصویر دیفالت تنظیم شد");
+  } catch (error) {
+    console.error("خطا در حذف عکس:", error);
+  }
 }

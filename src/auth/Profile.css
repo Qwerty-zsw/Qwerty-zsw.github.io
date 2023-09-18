@@ -1,0 +1,4 @@
+.blurray-bg{
+    box-shadow: 12px 10px 50px -15px #585347;
+    backdrop-filter: blur(7px);
+}
