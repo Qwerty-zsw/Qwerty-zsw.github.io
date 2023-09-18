@@ -41,8 +41,7 @@ export async function upload(file, currentUser, setLoading) {
   const fileRef = ref(storage, currentUser.uid + ".png");
 
   setLoading(true);
-
-  const snapshot = await uploadBytes(fileRef, file);
+  await uploadBytes(fileRef, file);
   const photoURL = await getDownloadURL(fileRef);
 
   updateProfile(currentUser, { photoURL });
@@ -67,7 +66,7 @@ export async function deletePhoto(currentUser) {
       "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png";
     await updateProfile(currentUser, { photoURL: defaultPhotoURL });
     window.location.reload();
-  } catch (error) {
-    console.error("خطا در حذف عکس:", error);
+  } catch (err) {
+    console.error(err);
   }
 }

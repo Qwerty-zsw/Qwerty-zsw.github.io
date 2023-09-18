@@ -4,11 +4,10 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import "./Profile.css";
 import { ToastContainer } from "react-toastify";
-import * as React from "react";
 
 const Profile = (props) => {
   const currentUser = useAuth();
-  const [loading, setLoading] = useState(false);
+  const [, setLoading] = useState(false);
   const [photoURL, setPhotoURL] = useState();
 
   const fileInputRef = useRef(null);
@@ -66,15 +65,20 @@ const Profile = (props) => {
         <p>نام : {props.username}</p>
         <p>ایمیل: {props.email}</p>
       </div>
-      <Modal
-        open={modalIsOpen}
-        onClose={() => setModalIsOpen(false)}
-      >
+      <Modal open={modalIsOpen} onClose={() => setModalIsOpen(false)}>
         <Box className="px-3 rounded-8 boxStlye" sx={style}>
           <h3 className="text-center text-white">تغییر عکس</h3>
-          <label className="uploadStyle cursor-pointer" htmlFor="wewe">آپلود عکس</label>
-          <input id="wewe" className="d-none" type="file" ref={fileInputRef} onChange={handleChange} />
-          <button className="asdasd" disabled={!photoURL} onClick={handleDeletePhoto}>
+          <label className="uploadStyle cursor-pointer" htmlFor="wewe">
+            آپلود عکس
+          </label>
+          <input
+            id="wewe"
+            className="d-none"
+            type="file"
+            ref={fileInputRef}
+            onChange={handleChange}
+          />
+          <button className="asdasd" onClick={handleDeletePhoto}>
             حذف عکس
           </button>
         </Box>
