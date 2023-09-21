@@ -56,12 +56,13 @@ export async function upload(file, currentUser, setLoading) {
 
 export async function deletePhoto(currentUser) {
   const fileRef = ref(storage, currentUser.uid + ".png");
-  toast.error("عکس حذف شد", {
-    theme: "colored",
-  });
 
   try {
     await deleteObject(fileRef);
+    toast.error("عکس حذف شد", {
+      theme: "colored",
+    });
+
     await updateProfile(currentUser, { photoURL: defaultAvatar });
     window.location.reload();
   } catch (err) {
