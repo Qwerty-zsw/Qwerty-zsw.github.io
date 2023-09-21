@@ -40,6 +40,9 @@ export const useAuth = () => {
 
 export async function upload(file, currentUser, setLoading) {
   const fileRef = ref(storage, currentUser.uid + ".png");
+  toast.info("عکس تغییر کرد", {
+    theme: "colored",
+  });
 
   setLoading(true);
   await uploadBytes(fileRef, file);
@@ -49,20 +52,16 @@ export async function upload(file, currentUser, setLoading) {
 
   setLoading(false);
   window.location.reload();
-  toast.info("عکس تغییر کرد", {
-    theme: "colored",
-  });
 }
 
 export async function deletePhoto(currentUser) {
   const fileRef = ref(storage, currentUser.uid + ".png");
+  toast.error("عکس حذف شد", {
+    theme: "colored",
+  });
 
   try {
     await deleteObject(fileRef);
-    toast.error("عکس حذف شد", {
-      theme: "colored",
-    });
-
     await updateProfile(currentUser, { photoURL: defaultAvatar });
     window.location.reload();
   } catch (err) {

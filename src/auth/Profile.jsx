@@ -50,10 +50,9 @@ const Profile = (props) => {
   return (
     <div className="w-100 h-100 d-flex justify-content-center align-items-center">
       <ToastContainer />
-      <div className="p-4 rounded-7 blurray-bg">
-        <h3 className="text-center">پروفایل کاربری</h3>
-        <div
-          className="mx-auto cursor-pointer"
+      <div style={{minWidth:"350px"}} className="p-4 rounded-7 blurray-bg">
+      <div
+          className="mx-auto mb-4 cursor-pointer"
           style={{ width: "5rem", height: "5rem", objectFit: "cover" }}
           onClick={handleImageClick}
         >
@@ -63,12 +62,13 @@ const Profile = (props) => {
             alt="Avatar"
           />
         </div>
-        <p>نام : {props.displayName}</p>
-        <p>ایمیل: {props.email}</p>
+        <h4 className="text-center mb-3 text-white fw-bold">مشخصات کاربری</h4>
+        <p className="text-white fw-bold">نام : {props.displayName}</p>
+        <p className="text-white fw-bold">ایمیل: {props.email}</p>
       </div>
       <Modal open={modalIsOpen} onClose={() => setModalIsOpen(false)}>
         <Box className="px-3 rounded-8 boxStlye" sx={style}>
-          <h3 className="text-center text-white">تغییر عکس</h3>
+          <h3 className="text-center text-white user-select-none">تغییر عکس</h3>
           <label className="uploadStyle cursor-pointer" htmlFor="wewe">
             آپلود عکس
           </label>
