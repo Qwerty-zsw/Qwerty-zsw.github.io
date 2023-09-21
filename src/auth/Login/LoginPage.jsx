@@ -58,7 +58,7 @@ const LoginPage = () => {
         theme: "colored",
       });
       setTimeout(() => {
-        navigate('/');
+        navigate("/");
       }, 1000);
     } catch (error) {
       toast.error("مشکل در ورود", {
@@ -81,14 +81,18 @@ const LoginPage = () => {
           <MDBCol col="12">
             <MDBCard
               className="text-white my-5 mx-auto bg-blur"
-              style={{ borderRadius: "3rem", maxWidth: "400px" }}
+              style={{
+                minWidth: "400px",
+                maxWidth: "600px",
+                borderRadius: "3rem",
+              }}
             >
               <MDBCardBody className="w-100 p-5 d-flex flex-column align-items-center mx-auto">
                 <h2 className="fw-bold mb-2 fs-3 text-uppercase user-select-none">
                   ورود
                 </h2>
                 <p className="text-white-75 mb-5 mt-2 smallCus user-select-none">
-                  لطفا نام کاربری و رمزعبور خود را وارد کنید
+                  لطفا ایمیل و رمزعبور خود را وارد کنید
                 </p>
 
                 <Form
@@ -98,7 +102,7 @@ const LoginPage = () => {
                   <MDBInput
                     wrapperClass="mb-1 w-100 qqqq"
                     labelClass="text-white TextInp"
-                    label="نام کاربری یا ایمیل"
+                    label="ایمیل"
                     id="formControlLg"
                     type="text"
                     size="lg"

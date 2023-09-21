@@ -12,7 +12,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import signupBG from "../../../public/wzG.jpg";
 import { ToastContainer, toast } from "react-toastify";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../../cfg/firebase";
 import { useState } from "react";
 import { Checkbox, FormControlLabel } from "@mui/material";
@@ -58,12 +58,11 @@ const Signup = () => {
     try {
       setIsLoading(true);
 
-      await createUserWithEmailAndPassword(
-        auth,
-        data.email,
-        data.password,
-        data.confirmPassword
-      );
+      await createUserWithEmailAndPassword(auth, data.email, data.password);
+
+      await updateProfile(auth.currentUser, {
+        displayName: data.user,
+      });
 
       toast.success("ثبت نام با موفقیت انجام شد", {
         theme: "colored",
@@ -108,7 +107,7 @@ const Signup = () => {
           >
             <MDBInput
               wrapperClass="mb-1 w-100 TextInp"
-              label="نام کاربری"
+              label="نام کامل"
               size="lg"
               id="form1"
               type="text"

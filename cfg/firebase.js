@@ -9,6 +9,7 @@ import {
 } from "firebase/storage";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
+import defaultAvatar from "../public/defaultAvatar.png";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBAsEdvG_8uXIWakuVxFiRfb9eE1Vh5cmc",
@@ -62,9 +63,7 @@ export async function deletePhoto(currentUser) {
       theme: "colored",
     });
 
-    const defaultPhotoURL =
-      "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png";
-    await updateProfile(currentUser, { photoURL: defaultPhotoURL });
+    await updateProfile(currentUser, { photoURL: defaultAvatar });
     window.location.reload();
   } catch (err) {
     console.error(err);

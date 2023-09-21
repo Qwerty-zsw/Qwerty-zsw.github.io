@@ -1,15 +1,14 @@
 import { NavDropdown } from "react-bootstrap";
-import "./UserAccordion.css";
 import { useEffect, useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth, useAuth } from "../../cfg/firebase";
+import defaultAvatar from "../../public/defaultAvatar.png";
+import "./UserAccordion.css";
 
 const UserAccordion = () => {
   const currentUser = useAuth();
   const [openHandle, setOpenHandle] = useState(false);
-  const [photoURL, setPhotoURL] = useState(
-    "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
-  );
+  const [photoURL, setPhotoURL] = useState(defaultAvatar);
 
   const logout = async () => {
     try {

@@ -4,11 +4,12 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import "./Profile.css";
 import { ToastContainer } from "react-toastify";
+import defaultAvatar from "../../public/defaultAvatar.png";
 
 const Profile = (props) => {
   const currentUser = useAuth();
   const [, setLoading] = useState(false);
-  const [photoURL, setPhotoURL] = useState();
+  const [photoURL, setPhotoURL] = useState(defaultAvatar);
 
   const fileInputRef = useRef(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -62,7 +63,7 @@ const Profile = (props) => {
             alt="Avatar"
           />
         </div>
-        <p>نام : {props.username}</p>
+        <p>نام : {props.displayName}</p>
         <p>ایمیل: {props.email}</p>
       </div>
       <Modal open={modalIsOpen} onClose={() => setModalIsOpen(false)}>

@@ -23,7 +23,7 @@ function ProfileDisplay() {
 
   return (
     <div style={{ backgroundImage: `url(${PS5ui})` }} className="w-100 h-100">
-      {user ? <Profile email={user.email} /> : null}
+      {user ? <Profile email={user.email} displayName={user.displayName} /> : null}
     </div>
   );
 }
