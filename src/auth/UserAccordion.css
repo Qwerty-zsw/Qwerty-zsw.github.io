@@ -1,8 +1,7 @@
-.accordions {
-  background-color: white;
-  margin-top: 2.7rem;
+.dropdown-toggle::after{
+    display: none !important;
 }
 
-.margin-l2 {
-  margin-left: 2rem;
+.dropdown-menu{
+    min-width: 6rem !important;
 }

@@ -18,7 +18,7 @@ const MainHead = ({ onSearch, searchClass }) => {
 
   return (
     <>
-      <Navbar className="rm-shadow py-0 my-0" expand="md">
+      <Navbar className="w-100 h-100 rm-shadow py-0 my-0" expand="md">
         <Container fluid>
           <Navbar.Toggle
             className="text-light fs-1"
@@ -53,7 +53,7 @@ const MainHead = ({ onSearch, searchClass }) => {
             >
               <NavDropdown
                 onClick={() => setMax(!Max)}
-                className="fw-bold text-center"
+                className="fw-bold text-center d-flex align-items-center"
                 title="آموزش ها"
                 id="navbarScrollingDropdown"
               >

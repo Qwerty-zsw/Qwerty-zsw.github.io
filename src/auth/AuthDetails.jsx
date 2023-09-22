@@ -24,7 +24,7 @@ const AuthDetails = () => {
   return (
     <div className="w-100 h-100">
       {authUser ? (
-        <div className="marginRight22">
+        <div className="marginRight1-5">
           <UserAccordion user={authUser} />
         </div>
       ) : (

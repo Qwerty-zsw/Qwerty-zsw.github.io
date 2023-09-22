@@ -51,7 +51,9 @@ export async function upload(file, currentUser, setLoading) {
   updateProfile(currentUser, { photoURL });
 
   setLoading(false);
-  window.location.reload();
+  setTimeout(() => {
+    window.location.reload();
+  }, 1000);
 }
 
 export async function deletePhoto(currentUser) {
@@ -64,7 +66,9 @@ export async function deletePhoto(currentUser) {
     });
 
     await updateProfile(currentUser, { photoURL: defaultAvatar });
-    window.location.reload();
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
   } catch (err) {
     console.error(err);
   }
